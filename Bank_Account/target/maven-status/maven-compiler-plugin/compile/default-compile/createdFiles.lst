@@ -1,0 +1,10 @@
+model\Client.class
+model\CommonAccount.class
+model\Movement.class
+model\SavingsAccount.class
+model\CommonAccountDAO.class
+model\SpecialAccount.class
+model\ClientDAO.class
+model\MovementDAO.class
+com\mycompany\bank_account\Bank_Account.class
+model\DAO.class
