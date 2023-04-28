@@ -19,7 +19,10 @@ import java.util.logging.Logger;
  * @author Mariana
  */
 public class MovementDAO extends DAO{
-     private static MovementDAO instance;
+    private static MovementDAO instance;
+    
+    final int SITUATION_ACTIVE = 1;
+    final int SITUATION_CANCELED = 0;
 
     private MovementDAO() {
         getConnection();
@@ -35,12 +38,13 @@ public class MovementDAO extends DAO{
     public Movement create(int bank, int agency, int account, double amount, Calendar date) {
         try {
             PreparedStatement stmt;
-            stmt = DAO.getConnection().prepareStatement("INSERT INTO movement (bank, agency, account, amount, date) VALUES (?,?,?,?,?)");
+            stmt = DAO.getConnection().prepareStatement("INSERT INTO movement (bank, agency, account, amount, date, situation) VALUES (?,?,?,?,?,?)");
             stmt.setInt(1, bank);
             stmt.setInt(2, agency);
             stmt.setInt(3, account);
             stmt.setDouble(4, amount);
             stmt.setDate(5, new Date(date.getTimeInMillis()));
+            stmt.setInt(6, SITUATION_ACTIVE);
             executeUpdate(stmt);
         } catch (SQLException ex) {
             Logger.getLogger(MovementDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -92,16 +96,12 @@ public class MovementDAO extends DAO{
     }   
         
     // Updade
-    public void update(Movement movement) {
+    public void cancel(Movement movement) {
         try {
             PreparedStatement stmt;
-            stmt = DAO.getConnection().prepareStatement("UPDATE movement SET bank=?, agency=?, account=?, amount=?, date=? WHERE id=?");
-            stmt.setInt(1, movement.getBank());
-            stmt.setInt(2, movement.getAgency());
-            stmt.setInt(3, movement.getAccount());
-            stmt.setDouble(4, movement.getAmount());
-            stmt.setDate(5, new Date(movement.getDate().getTimeInMillis()));
-            stmt.setInt(6, movement.getId());
+            stmt = DAO.getConnection().prepareStatement("UPDATE movement SET situation=? WHERE id=?");
+            stmt.setInt(1, SITUATION_CANCELED);
+            stmt.setInt(2, movement.getId());
             executeUpdate(stmt);
         } catch (SQLException e) {
             System.err.println("Exception: " + e.getMessage());
