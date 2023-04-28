@@ -1,4 +1,4 @@
-package model;
+package Model;
 
 
 import java.sql.Date;
@@ -34,13 +34,13 @@ public class ClientDAO extends DAO{
     }
 
 // CRUD    
-    public Client create(String nome, String cpf, Calendar dataNasc) {
+    public Client create(String name, String cpf, Calendar birthdate) {
         try {
             PreparedStatement stmt;
-            stmt = DAO.getConnection().prepareStatement("INSERT INTO client (nome, cpf, dataNasc) VALUES (?,?,?)");
-            stmt.setString(1, nome);
+            stmt = DAO.getConnection().prepareStatement("INSERT INTO client (name, cpf, birthdate) VALUES (?,?,?)");
+            stmt.setString(1, name);
             stmt.setString(2, cpf);
-            stmt.setDate(3, new Date(dataNasc.getTimeInMillis()));
+            stmt.setDate(3, new Date(birthdate.getTimeInMillis()));
             executeUpdate(stmt);
         } catch (SQLException ex) {
             Logger.getLogger(ClientDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -53,8 +53,8 @@ public class ClientDAO extends DAO{
         
         try {
             Calendar dt = Calendar.getInstance();
-            dt.setTime(rs.getDate("dataNasc"));                    
-            client = new Client(rs.getInt("id"),rs.getString("nome"), rs.getString("cpf"),dt);
+            dt.setTime(rs.getDate("birthdate"));                    
+            client = new Client(rs.getInt("id"),rs.getString("name"), rs.getString("cpf"),dt);
         } catch (SQLException e) {
             System.err.println("Exception: " + e.getMessage());
         }
@@ -92,25 +92,26 @@ public class ClientDAO extends DAO{
     }
 
     // RetrieveBySimilarName
-    public List retrieveBySimilarName(String nome) {
-        return this.retrieve("SELECT * FROM client WHERE nome LIKE '%" + nome + "%'");
+    public List retrieveBySimilarName(String name) {
+        return this.retrieve("SELECT * FROM client WHERE name LIKE '%" + name + "%'");
     }    
         
     // Updade
     public void update(Client clients) {
         try {
             PreparedStatement stmt;
-            stmt = DAO.getConnection().prepareStatement("UPDATE client SET nome=?, cpf=?, dataNasc=? WHERE id=?");
-            stmt.setString(1, clients.getNome());
+            stmt = DAO.getConnection().prepareStatement("UPDATE client SET name=?, cpf=?, birthdate=? WHERE id=?");
+            stmt.setString(1, clients.getName());
             stmt.setString(2, clients.getCpf());
-            stmt.setDate(3, new Date(clients.getDataNasc().getTimeInMillis()));
+            stmt.setDate(3, new Date(clients.getBirthdate().getTimeInMillis()));
             stmt.setInt(4, clients.getId());
             executeUpdate(stmt);
         } catch (SQLException e) {
             System.err.println("Exception: " + e.getMessage());
         }
     }
-        // Delete   
+    
+    // Delete   
     public void delete(Client client) {
         PreparedStatement stmt;
         try {
@@ -121,4 +122,4 @@ public class ClientDAO extends DAO{
             System.err.println("Exception: " + e.getMessage());
         }
     }
-  }
+}

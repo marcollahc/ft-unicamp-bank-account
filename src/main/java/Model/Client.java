@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package model;
+package Model;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -13,17 +13,17 @@ import java.util.Date;
  */
 public class Client {
     private int id;
-    private String nome;
+    private String name;
     private String cpf;
-    private Calendar dataNasc;
+    private Calendar birthdate;
 
 //Construtor
 
-    public Client(int id, String nome, String cpf, Calendar dataNasc) {
+    public Client(int id, String name, String cpf, Calendar birthdate) {
         this.id = id;
-        this.nome = nome;
+        this.name = name;
         this.cpf = cpf;
-        this.dataNasc = dataNasc;
+        this.birthdate = birthdate;
     }
     
 //Getters and Setters
@@ -32,12 +32,12 @@ public class Client {
         return id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getCpf() {
@@ -48,14 +48,13 @@ public class Client {
         this.cpf = cpf;
     }
 
-    public Calendar getDataNasc() {
-        return dataNasc;
+    public Calendar getBirthdate() {
+        return birthdate;
     }
 
-    public void setDataNasc(Calendar dataNasc) {
-        this.dataNasc = dataNasc;
+    public void setDataNasc(Calendar birthdate) {
+        this.birthdate = birthdate;
     }
-  
 }
 
 

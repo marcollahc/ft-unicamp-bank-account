@@ -5,7 +5,7 @@
 package com.ft.unicamp.bank.account;
 
 import java.util.Calendar;
-import model.ClientDAO;
+import Model.ClientDAO;
 
 /**
  *

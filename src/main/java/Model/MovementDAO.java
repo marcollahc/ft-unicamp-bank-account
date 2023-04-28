@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package model;
+package Model;
 
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -31,16 +31,16 @@ public class MovementDAO extends DAO{
         return (instance==null?(instance = new MovementDAO()):instance);
     }
 
-// CRUD    
-    public Movement create(int banco, int conta, int agencia, double valor, Calendar data) {
+    // CRUD    
+    public Movement create(int bank, int agency, int account, double amount, Calendar date) {
         try {
             PreparedStatement stmt;
-            stmt = DAO.getConnection().prepareStatement("INSERT INTO movement (banco, conta, agencia, valor, data) VALUES (?,?,?,?,?)");
-            stmt.setInt(1, banco);
-            stmt.setInt(2, conta);
-            stmt.setInt(3, agencia);
-            stmt.setDouble(4, valor);
-            stmt.setDate(5, new Date(data.getTimeInMillis()));
+            stmt = DAO.getConnection().prepareStatement("INSERT INTO movement (bank, agency, account, amount, date) VALUES (?,?,?,?,?)");
+            stmt.setInt(1, bank);
+            stmt.setInt(2, agency);
+            stmt.setInt(3, account);
+            stmt.setDouble(4, amount);
+            stmt.setDate(5, new Date(date.getTimeInMillis()));
             executeUpdate(stmt);
         } catch (SQLException ex) {
             Logger.getLogger(MovementDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -52,9 +52,9 @@ public class MovementDAO extends DAO{
         Movement movement = null;
         try {
             Calendar dt = Calendar.getInstance();
-            dt.setTime(rs.getDate("data"));
+            dt.setTime(rs.getDate("date"));
                     
-            movement = new Movement(rs.getInt("id"),rs.getInt("banco"), rs.getInt("conta"),rs.getInt("agencia"),rs.getDouble("valor"),dt);
+            movement = new Movement(rs.getInt("id"),rs.getInt("bank"), rs.getInt("agency"),rs.getInt("account"),rs.getDouble("amount"),dt);
         } catch (SQLException e) {
             System.err.println("Exception: " + e.getMessage());
         }
@@ -89,38 +89,22 @@ public class MovementDAO extends DAO{
     public Movement retrieveById(int id) {
         List<Movement> movement = this.retrieve("SELECT * FROM movement WHERE id = " + id);
         return (movement.isEmpty()?null:movement.get(0));
-    }
-
-    // RetrieveBySimilarName
-    public List retrieveBySimilarName(String nome) {
-        return this.retrieve("SELECT * FROM movement WHERE nome LIKE '%" + nome + "%'");
-    }    
+    }   
         
     // Updade
     public void update(Movement movement) {
         try {
             PreparedStatement stmt;
-            stmt = DAO.getConnection().prepareStatement("UPDATE movement SET banco=?, conta=?, agencia=?, valor=?, data=? WHERE id=?");
-            stmt.setInt(1, movement.getBanco());
-            stmt.setInt(2, movement.getConta());
-            stmt.setInt(3, movement.getAgencia());
-            stmt.setDouble(4, movement.getValor());
-            stmt.setDate(5, new Date(movement.getData().getTimeInMillis()));
-                stmt.setInt(6, movement.getId());
+            stmt = DAO.getConnection().prepareStatement("UPDATE movement SET bank=?, agency=?, account=?, amount=?, date=? WHERE id=?");
+            stmt.setInt(1, movement.getBank());
+            stmt.setInt(2, movement.getAgency());
+            stmt.setInt(3, movement.getAccount());
+            stmt.setDouble(4, movement.getAmount());
+            stmt.setDate(5, new Date(movement.getDate().getTimeInMillis()));
+            stmt.setInt(6, movement.getId());
             executeUpdate(stmt);
         } catch (SQLException e) {
             System.err.println("Exception: " + e.getMessage());
         }
     }
-        // Delete   
-    public void delete(Movement movement) {
-        PreparedStatement stmt;
-        try {
-            stmt = DAO.getConnection().prepareStatement("DELETE FROM movement WHERE conta = ?");
-            stmt.setInt(1, movement.getConta());
-            executeUpdate(stmt);
-        } catch (SQLException e) {
-            System.err.println("Exception: " + e.getMessage());
-        }
-}
 }

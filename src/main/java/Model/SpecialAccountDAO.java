@@ -1,4 +1,4 @@
-package model;
+package Model;
 
 
 import java.sql.Date;
@@ -33,25 +33,25 @@ public class SpecialAccountDAO extends DAO{
         return (instance==null?(instance = new SpecialAccountDAO()):instance);
     }
 
-// CRUD    
-    public SpecialAccount create(int idContaComum, double limiteCredito) {
+    // CRUD    
+    public SpecialAccount create(int idCommonAccount, double creditLimit) {
         try {
             PreparedStatement stmt;
-            stmt = DAO.getConnection().prepareStatement("INSERT INTO special_account (idContaComum, limiteCredito) VALUES (?, ?)");
-            stmt.setInt(1, idContaComum);
-            stmt.setDouble(2, limiteCredito);
+            stmt = DAO.getConnection().prepareStatement("INSERT INTO special_account (idCommonAccount, creditLimit) VALUES (?, ?)");
+            stmt.setInt(1, idCommonAccount);
+            stmt.setDouble(2, creditLimit);
             executeUpdate(stmt);
         } catch (SQLException ex) {
             Logger.getLogger(SpecialAccountDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return this.retrieveById(lastId("special_account","idContaComum"));
+        return this.retrieveById(lastId("special_account","idCommonAccount"));
     }
     
     private SpecialAccount buildObject(ResultSet rs) {
         SpecialAccount special_account = null;
         
         try {                  
-            special_account = new SpecialAccount(rs.getInt("idContaComum"),rs.getDouble("limiteCredito"));
+            special_account = new SpecialAccount(rs.getInt("idCommonAccount"),rs.getDouble("creditLimit"));
         } catch (SQLException e) {
             System.err.println("Exception: " + e.getMessage());
         }
@@ -79,12 +79,12 @@ public class SpecialAccountDAO extends DAO{
     
     // RetrieveLast
     public List retrieveLast(){
-        return this.retrieve("SELECT * FROM special_account WHERE idContaComum = " + lastId("special_account","idContaComum"));
+        return this.retrieve("SELECT * FROM special_account WHERE idCommonAccount = " + lastId("special_account","idCommonAccount"));
     }
 
     // RetrieveById
-    public SpecialAccount retrieveById(int idContaComum) {
-        List<SpecialAccount> special_accounts = this.retrieve("SELECT * FROM special_account WHERE idContaComum = " + idContaComum);
+    public SpecialAccount retrieveById(int idCommonAccount) {
+        List<SpecialAccount> special_accounts = this.retrieve("SELECT * FROM special_account WHERE idCommonAccount = " + idCommonAccount);
         return (special_accounts.isEmpty()?null:special_accounts.get(0));
     }    
         
@@ -92,9 +92,9 @@ public class SpecialAccountDAO extends DAO{
     public void update(SpecialAccount special_account) {
         try {
             PreparedStatement stmt;
-            stmt = DAO.getConnection().prepareStatement("UPDATE special_account SET limiteCredito=? WHERE idContaComum=?");
-            stmt.setDouble(1, special_account.getLimiteCredito());
-            stmt.setInt(2, special_account.getIdContaComum());
+            stmt = DAO.getConnection().prepareStatement("UPDATE special_account SET creditLimit=? WHERE idCommonAccount=?");
+            stmt.setDouble(1, special_account.getCreditLimit());
+            stmt.setInt(2, special_account.getIdCommonAccount());
             executeUpdate(stmt);
         } catch (SQLException e) {
             System.err.println("Exception: " + e.getMessage());
@@ -104,11 +104,11 @@ public class SpecialAccountDAO extends DAO{
     public void delete(SpecialAccount special_account) {
         PreparedStatement stmt;
         try {
-            stmt = DAO.getConnection().prepareStatement("DELETE FROM special_account WHERE limiteCredito = ?");
-            stmt.setInt(1, special_account.getIdContaComum());
+            stmt = DAO.getConnection().prepareStatement("DELETE FROM special_account WHERE creditLimit = ?");
+            stmt.setInt(1, special_account.getIdCommonAccount());
             executeUpdate(stmt);
         } catch (SQLException e) {
             System.err.println("Exception: " + e.getMessage());
         }
     }
-  }
+}
