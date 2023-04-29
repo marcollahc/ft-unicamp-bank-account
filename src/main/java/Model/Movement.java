@@ -12,25 +12,37 @@ import java.util.Calendar;
  */
 public class Movement {
     private int id;
+    private int accountId;
     private int bank;
     private int agency;
     private int account;
     private double amount;
-    private Calendar date;
+    private Calendar operationDate;
+    private int situation;
 
     //Construtor
-    public Movement(int id, int bank, int agency, int account, double amount, Calendar date) {
+    public Movement(int id, int accountId, int bank, int agency, int account, double amount, Calendar operationDate, int situation) {
         this.id = id;
+        this.accountId = accountId;
         this.bank = bank;
         this.agency = agency;
         this.account = account;
         this.amount = amount;
-        this.date = date;
+        this.operationDate = operationDate;
+        this.situation = situation;
     }
 
     //Getters and Setters
     public int getId() {
         return id;
+    }
+    
+    public int getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(int accountId) {
+        this.accountId = accountId;
     }
 
     public int getBank() {
@@ -65,11 +77,19 @@ public class Movement {
         this.amount = amount;
     }
 
-    public Calendar getDate() {
-        return date;
+    public Calendar getOperationDate() {
+        return operationDate;
     }
 
-    public void setDate(Calendar date) {
-        this.date = date;
+    public void setOperationDate(Calendar operationDate) {
+        this.operationDate = operationDate;
+    }
+    
+    public int getSituation() {
+        return situation;
+    }
+
+    public void setSituation(int situation) {
+        this.situation = situation;
     }
 }

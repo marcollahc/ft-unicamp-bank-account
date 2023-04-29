@@ -90,46 +90,49 @@ public class DAO {
             stmt = DAO.getConnection().prepareStatement("""
                                                         CREATE TABLE IF NOT EXISTS client( 
                                                         id INTEGER PRIMARY KEY, 
-                                                        nome VARCHAR, 
+                                                        name VARCHAR, 
                                                         cpf VARCHAR, 
-                                                        dataNasc DATE); 
+                                                        birthdate DATE); 
                                                         """);
             executeUpdate(stmt);
             // Table movement:
             stmt = DAO.getConnection().prepareStatement("""
                                                         CREATE TABLE IF NOT EXISTS movement( 
-                                                        id INTEGER PRIMARY KEY, 
-                                                        banco INTEGER, 
-                                                        conta INTEGER,
-                                                        agencia INTEGER,
-                                                        valor DOUBLE,
-                                                        data DATE); 
+                                                        id INTEGER PRIMARY KEY,
+                                                        accountId INTEGER,
+                                                        bank INTEGER,
+                                                        agency INTEGER,
+                                                        account INTEGER,                                                        
+                                                        amount DOUBLE,
+                                                        operationDate DATE,
+                                                        situation INTEGER); 
                                                         """);
             executeUpdate(stmt);
             // Table commonAccount:
             stmt = DAO.getConnection().prepareStatement("""
                                                         CREATE TABLE IF NOT EXISTS commonAccount( 
-                                                        id INTEGER PRIMARY KEY, 
-                                                        banco INTEGER, 
-                                                        agencia INTEGER,
-                                                        conta INTEGER,
-                                                        dataAbertura DATE,
-                                                        saldo DOUBLE,
-                                                        limiteTransacao DOUBLE);
+                                                        id INTEGER PRIMARY KEY,
+                                                        clientId INTEGER,
+                                                        bank INTEGER, 
+                                                        agency INTEGER,
+                                                        account INTEGER,
+                                                        openDate DATE,
+                                                        balance DOUBLE,
+                                                        limitTransaction DOUBLE);
                                                         """);
             executeUpdate(stmt);
             // Table savingsAccount:
             stmt = DAO.getConnection().prepareStatement("""
                                                         CREATE TABLE IF NOT EXISTS savingsAccount( 
-                                                        id INTEGER PRIMARY KEY, 
-                                                        aniversarioConta INTEGER); 
+                                                        idCommonAccount INTEGER PRIMARY KEY, 
+                                                        birthdayAccount INTEGER); 
                                                         """);
             executeUpdate(stmt);        
             // Table specialAccount:
             stmt = DAO.getConnection().prepareStatement("""
                                                         CREATE TABLE IF NOT EXISTS specialAccount( 
-                                                        id INTEGER PRIMARY KEY, 
-                                                        limiteCredito DOUBLE); 
+                                                        idCommonAccount INTEGER PRIMARY KEY, 
+                                                        creditLimit DOUBLE); 
                                                         """);
             executeUpdate(stmt);
             return true;

@@ -35,16 +35,17 @@ public class MovementDAO extends DAO{
     }
 
     // CRUD    
-    public Movement create(int bank, int agency, int account, double amount, Calendar date) {
+    public Movement create(int accountId, int bank, int agency, int account, double amount, Calendar operationDate) {
         try {
             PreparedStatement stmt;
-            stmt = DAO.getConnection().prepareStatement("INSERT INTO movement (bank, agency, account, amount, date, situation) VALUES (?,?,?,?,?,?)");
-            stmt.setInt(1, bank);
-            stmt.setInt(2, agency);
-            stmt.setInt(3, account);
-            stmt.setDouble(4, amount);
-            stmt.setDate(5, new Date(date.getTimeInMillis()));
-            stmt.setInt(6, SITUATION_ACTIVE);
+            stmt = DAO.getConnection().prepareStatement("INSERT INTO movement (accountId, bank, agency, account, amount, operationDate, situation) VALUES (?,?,?,?,?,?,?)");
+            stmt.setInt(1, accountId);
+            stmt.setInt(2, bank);
+            stmt.setInt(3, agency);
+            stmt.setInt(4, account);
+            stmt.setDouble(5, amount);
+            stmt.setDate(6, new Date(operationDate.getTimeInMillis()));
+            stmt.setInt(7, SITUATION_ACTIVE);
             executeUpdate(stmt);
         } catch (SQLException ex) {
             Logger.getLogger(MovementDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -56,9 +57,9 @@ public class MovementDAO extends DAO{
         Movement movement = null;
         try {
             Calendar dt = Calendar.getInstance();
-            dt.setTime(rs.getDate("date"));
+            dt.setTime(rs.getDate("operationDate"));
                     
-            movement = new Movement(rs.getInt("id"),rs.getInt("bank"), rs.getInt("agency"),rs.getInt("account"),rs.getDouble("amount"),dt);
+            movement = new Movement(rs.getInt("id"),rs.getInt("accountId"),rs.getInt("bank"), rs.getInt("agency"),rs.getInt("account"),rs.getDouble("amount"),dt, rs.getInt("situation"));
         } catch (SQLException e) {
             System.err.println("Exception: " + e.getMessage());
         }
@@ -93,6 +94,11 @@ public class MovementDAO extends DAO{
     public Movement retrieveById(int id) {
         List<Movement> movement = this.retrieve("SELECT * FROM movement WHERE id = " + id);
         return (movement.isEmpty()?null:movement.get(0));
+    }
+    
+    // RetrieveById
+    public List retrieveByAccountId(int accountId) {
+        return this.retrieve("SELECT * FROM movement WHERE accountId = " + accountId);
     }   
         
     // Updade

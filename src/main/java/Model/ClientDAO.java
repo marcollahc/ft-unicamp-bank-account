@@ -97,14 +97,14 @@ public class ClientDAO extends DAO{
     }    
         
     // Updade
-    public void update(Client clients) {
+    public void update(Client client) {
         try {
             PreparedStatement stmt;
             stmt = DAO.getConnection().prepareStatement("UPDATE client SET name=?, cpf=?, birthdate=? WHERE id=?");
-            stmt.setString(1, clients.getName());
-            stmt.setString(2, clients.getCpf());
-            stmt.setDate(3, new Date(clients.getBirthdate().getTimeInMillis()));
-            stmt.setInt(4, clients.getId());
+            stmt.setString(1, client.getName());
+            stmt.setString(2, client.getCpf());
+            stmt.setDate(3, new Date(client.getBirthdate().getTimeInMillis()));
+            stmt.setInt(4, client.getId());
             executeUpdate(stmt);
         } catch (SQLException e) {
             System.err.println("Exception: " + e.getMessage());
