@@ -4,9 +4,9 @@
 
 package com.ft.unicamp.bank.account;
 
-import Model.Client;
+import Model.Customer;
 import java.util.Calendar;
-import Model.ClientDAO;
+import Model.CustomerDAO;
 import Model.CommonAccount;
 import Model.CommonAccountDAO;
 import Model.Movement;
@@ -22,33 +22,33 @@ public class FtUnicampBankAccount {
         Calendar birthdate = Calendar.getInstance();
         birthdate.set(2023, Calendar.APRIL, 26);
     
-        //Client
-        System.out.println("Client");
-        ClientDAO.getInstance().create("Antônio José da Silva", "12345678981", birthdate);
-        ClientDAO.getInstance().create("José Antônio da Silva", "12345678982", birthdate);
-        System.out.println(ClientDAO.getInstance().retrieveAll());
+        //Customer
+        System.out.println("Customer");
+        CustomerDAO.getInstance().create("Antônio José da Silva", "12345678981", birthdate);
+        CustomerDAO.getInstance().create("José Antônio da Silva", "12345678982", birthdate);
+        System.out.println(CustomerDAO.getInstance().retrieveAll());
         
-        Client client_last = (Client) ClientDAO.getInstance().retrieveLast().get(0);
+        Customer customer_last = (Customer) CustomerDAO.getInstance().retrieveLast().get(0);
         
-        Client client_by_id = ClientDAO.getInstance().retrieveById(client_last.getId());
+        Customer customer_by_id = CustomerDAO.getInstance().retrieveById(customer_last.getId());
         
-        System.out.println(client_by_id.getName());
-        System.out.println(ClientDAO.getInstance().retrieveBySimilarName("Antônio"));
+        System.out.println(customer_by_id.getName());
+        System.out.println(CustomerDAO.getInstance().retrieveBySimilarName("Antônio"));
         
-        client_by_id.setName("Josué Antônio da Silva");
-        ClientDAO.getInstance().update(client_by_id);
+        customer_by_id.setName("Josué Antônio da Silva");
+        CustomerDAO.getInstance().update(customer_by_id);
         
-        client_by_id = ClientDAO.getInstance().retrieveById(client_last.getId());
-        System.out.println(client_by_id.getName());
+        customer_by_id = CustomerDAO.getInstance().retrieveById(customer_last.getId());
+        System.out.println(customer_by_id.getName());
         
-        // ClientDAO.getInstance().delete(client_by_id);
+        // CustomerDAO.getInstance().delete(customer_by_id);
         
         // CommonAccount
         System.out.println("CommonAccount");
         Calendar openDate = Calendar.getInstance();
         openDate.set(2023, Calendar.APRIL, 26);
         
-        CommonAccountDAO.getInstance().create(client_by_id.getId(), 1, 1, 1, openDate, 0, 1000);
+        CommonAccountDAO.getInstance().create(customer_by_id.getId(), 1, 1, 1, openDate, 0, 1000);
         System.out.println(CommonAccountDAO.getInstance().retrieveAll());
         
         CommonAccount common_account_last = (CommonAccount) CommonAccountDAO.getInstance().retrieveLast().get(0);
@@ -56,7 +56,7 @@ public class FtUnicampBankAccount {
         CommonAccount common_account_by_id = CommonAccountDAO.getInstance().retrieveById(common_account_last.getId());
         
         System.out.println(common_account_by_id.getAccount());
-        System.out.println(CommonAccountDAO.getInstance().retrieveByClientId(client_by_id.getId()));
+        System.out.println(CommonAccountDAO.getInstance().retrieveByCustomerId(customer_by_id.getId()));
         
         common_account_by_id.setAccount(123);
         CommonAccountDAO.getInstance().update(common_account_by_id);

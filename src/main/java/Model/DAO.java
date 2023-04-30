@@ -86,9 +86,9 @@ public class DAO {
     protected final boolean createTable() {
         try {
             PreparedStatement stmt;
-            // Table client:
+            // Table customer:
             stmt = DAO.getConnection().prepareStatement("""
-                                                        CREATE TABLE IF NOT EXISTS client( 
+                                                        CREATE TABLE IF NOT EXISTS customer( 
                                                         id INTEGER PRIMARY KEY, 
                                                         name VARCHAR, 
                                                         cpf VARCHAR, 
@@ -112,7 +112,7 @@ public class DAO {
             stmt = DAO.getConnection().prepareStatement("""
                                                         CREATE TABLE IF NOT EXISTS commonAccount( 
                                                         id INTEGER PRIMARY KEY,
-                                                        clientId INTEGER,
+                                                        customerId INTEGER,
                                                         bank INTEGER, 
                                                         agency INTEGER,
                                                         account INTEGER,

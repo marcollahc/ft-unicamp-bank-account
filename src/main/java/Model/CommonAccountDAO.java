@@ -33,11 +33,11 @@ public class CommonAccountDAO extends DAO {
     }
 
     // CRUD    
-    public CommonAccount create(int clientId, int bank, int agency, int account, Calendar openDate, double balance, double limitTransaction) {
+    public CommonAccount create(int customerId, int bank, int agency, int account, Calendar openDate, double balance, double limitTransaction) {
         try {
             PreparedStatement stmt;
-            stmt = DAO.getConnection().prepareStatement("INSERT INTO commonAccount (clientId, bank, agency, account, openDate, balance, limitTransaction) VALUES (?,?,?,?,?,?,?)");
-            stmt.setInt(1, clientId);
+            stmt = DAO.getConnection().prepareStatement("INSERT INTO commonAccount (customerId, bank, agency, account, openDate, balance, limitTransaction) VALUES (?,?,?,?,?,?,?)");
+            stmt.setInt(1, customerId);
             stmt.setInt(2, bank);
             stmt.setInt(3, agency);
             stmt.setInt(4, account);
@@ -57,7 +57,7 @@ public class CommonAccountDAO extends DAO {
             Calendar dt = Calendar.getInstance();
             dt.setTime(rs.getDate("openDate"));
                     
-            commonAccount = new CommonAccount(rs.getInt("id"), rs.getInt("clientId"),rs.getInt("bank"), rs.getInt("agency"),rs.getInt("account"),dt,rs.getDouble("balance"),rs.getDouble("limitTransaction"));
+            commonAccount = new CommonAccount(rs.getInt("id"), rs.getInt("customerId"),rs.getInt("bank"), rs.getInt("agency"),rs.getInt("account"),dt,rs.getDouble("balance"),rs.getDouble("limitTransaction"));
         } catch (SQLException e) {
             System.err.println("Exception: " + e.getMessage());
         }
@@ -95,16 +95,16 @@ public class CommonAccountDAO extends DAO {
     }
 
     // RetrieveBySimilarName
-    public List retrieveByClientId(int clientId) {
-        return this.retrieve("SELECT * FROM commonAccount WHERE clientId = " + clientId);
+    public List retrieveByCustomerId(int customerId) {
+        return this.retrieve("SELECT * FROM commonAccount WHERE customerId = " + customerId);
     }    
         
     // Updade
     public void update(CommonAccount commonAccount) {
         try {
             PreparedStatement stmt;
-            stmt = DAO.getConnection().prepareStatement("UPDATE commonAccount SET clientId=?, bank=?, agency=?, account=?, openDate=?, balance=?, limitTransaction=? WHERE id=?");
-            stmt.setInt(1, commonAccount.getClientId());
+            stmt = DAO.getConnection().prepareStatement("UPDATE commonAccount SET customerId=?, bank=?, agency=?, account=?, openDate=?, balance=?, limitTransaction=? WHERE id=?");
+            stmt.setInt(1, commonAccount.getCustomerId());
             stmt.setInt(2, commonAccount.getBank());
             stmt.setInt(3, commonAccount.getAgency());
             stmt.setInt(4, commonAccount.getAccount());

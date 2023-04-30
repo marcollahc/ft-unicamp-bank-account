@@ -12,7 +12,7 @@ import java.util.Calendar;
  */
 public class CommonAccount {
     private int id;
-    private int clientId;
+    private int customerId;
     private int bank;
     private int agency;
     private int account;
@@ -21,9 +21,9 @@ public class CommonAccount {
     private double limitTransaction;
     
     //Construtor
-    public CommonAccount(int id, int clientId, int bank, int agency, int account, Calendar openDate, double balance, double limitTransaction) {
+    public CommonAccount(int id, int customerId, int bank, int agency, int account, Calendar openDate, double balance, double limitTransaction) {
         this.id = id;
-        this.clientId = clientId;
+        this.customerId = customerId;
         this.bank = bank;
         this.agency = agency;
         this.account = account;
@@ -37,12 +37,12 @@ public class CommonAccount {
         return id;
     }
     
-    public int getClientId() {
-        return clientId;
+    public int getCustomerId() {
+        return customerId;
     }
     
-    public int setClientId() {
-        return clientId;
+    public int setCustomerId() {
+        return customerId;
     }
 
     public int getBank() {

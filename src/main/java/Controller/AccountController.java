@@ -8,6 +8,6 @@ package Controller;
  *
  * @author marcos-medeiros
  */
-public class Movement {
+public class AccountController {
     
 }
