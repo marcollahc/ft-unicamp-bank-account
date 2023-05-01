@@ -105,6 +105,7 @@ public class DAO {
                                                         account INTEGER,                                                        
                                                         amount DOUBLE,
                                                         operationDate DATE,
+                                                        movementType STRING,
                                                         situation INTEGER); 
                                                         """);
             executeUpdate(stmt);

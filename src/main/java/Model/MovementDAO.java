@@ -31,17 +31,18 @@ public class MovementDAO extends DAO{
     }
 
     // CRUD    
-    public Movement create(int accountId, int bank, int agency, int account, double amount, Calendar operationDate) {
+    public Movement create(int accountId, int bank, int agency, int account, double amount, Calendar operationDate, String movementType) {
         try {
             PreparedStatement stmt;
-            stmt = DAO.getConnection().prepareStatement("INSERT INTO movement (accountId, bank, agency, account, amount, operationDate, situation) VALUES (?,?,?,?,?,?,?)");
+            stmt = DAO.getConnection().prepareStatement("INSERT INTO movement (accountId, bank, agency, account, amount, operationDate, movementType, situation) VALUES (?,?,?,?,?,?,?,?)");
             stmt.setInt(1, accountId);
             stmt.setInt(2, bank);
             stmt.setInt(3, agency);
             stmt.setInt(4, account);
             stmt.setDouble(5, amount);
             stmt.setDate(6, new Date(operationDate.getTimeInMillis()));
-            stmt.setInt(7, SITUATION_ACTIVE);
+            stmt.setString(7, movementType);
+            stmt.setInt(8, SITUATION_ACTIVE);
             executeUpdate(stmt);
         } catch (SQLException ex) {
             Logger.getLogger(MovementDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -52,8 +53,8 @@ public class MovementDAO extends DAO{
     private Movement buildObject(ResultSet rs) {
         Movement movement = null;
         try {
-            Calendar dt = Calendar.getInstance();
-            dt.setTime(rs.getDate("operationDate"));
+            Calendar operationDate = Calendar.getInstance();
+            operationDate.setTime(rs.getDate("operationDate"));
                     
             movement = new Movement(
                 rs.getInt("id"),
@@ -62,7 +63,8 @@ public class MovementDAO extends DAO{
                 rs.getInt("agency"),
                 rs.getInt("account"),
                 rs.getDouble("amount"),
-                dt, rs.getInt("situation"),
+                operationDate,
+                rs.getInt("situation"),
                 rs.getString("movementType")
             );
         } catch (SQLException e) {

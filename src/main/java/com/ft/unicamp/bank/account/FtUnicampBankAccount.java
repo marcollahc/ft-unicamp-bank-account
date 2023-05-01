@@ -71,7 +71,7 @@ public class FtUnicampBankAccount {
         Calendar operationDate = Calendar.getInstance();
         openDate.set(2023, Calendar.APRIL, 26);
         
-        MovementDAO.getInstance().create(common_account_by_id.getId(), 1, 1, 2, 2.00f, operationDate);
+        MovementDAO.getInstance().create(common_account_by_id.getId(), 1, 1, 2, 2.00f, operationDate, "Depósito");
         System.out.println(MovementDAO.getInstance().retrieveAll());
         
         Movement movement_last = (Movement) MovementDAO.getInstance().retrieveLast().get(0);
@@ -83,5 +83,14 @@ public class FtUnicampBankAccount {
         
         MovementDAO.getInstance().cancel(movement_by_id);
         System.out.println(movement_by_id.getAmount());
+
+        //Deposit and Withdraw
+        System.out.println("Deposit");
+        CommonAccountDAO.getInstance().depositMoney(common_account_by_id, 50.00);
+        System.out.println(MovementDAO.getInstance().retrieveAll());
+        
+        System.out.println("Withdraw");
+        CommonAccountDAO.getInstance().withdrawMoney(common_account_by_id, 30.00);
+        System.out.println(MovementDAO.getInstance().retrieveAll());
     }
 }

@@ -38,6 +38,7 @@ public class Movement {
         this.amount = amount;
         this.operationDate = operationDate;
         this.situation = situation;
+        this.movementType = movementType;
     }
 
     //Getters and Setters

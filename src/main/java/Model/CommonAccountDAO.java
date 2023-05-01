@@ -130,9 +130,10 @@ public class CommonAccountDAO extends DAO {
         PreparedStatement stmt;
         try {
             stmt = DAO.getConnection().prepareStatement(
-                "UPDATE commonAccount SET balance = balance + ?  WHERE id = ?");
+                "UPDATE commonAccount SET balance = balance + ?  WHERE id = ?"
+            );
             stmt.setDouble(1, commonAccount.getBalance());
-            stmt.setInt(3, commonAccount.getId());
+            stmt.setInt(2, commonAccount.getId());
             executeUpdate(stmt);
             
             Calendar operationDate = Calendar.getInstance();
@@ -142,7 +143,8 @@ public class CommonAccountDAO extends DAO {
                     commonAccount.getAgency(),
                     commonAccount.getAccount(),
                     commonAccount.getBalance() + amount,
-                    operationDate
+                    operationDate,
+                    "Depósito"
             );
         } catch (SQLException exception) {
             System.err.println("Exception: " + exception.getMessage());
@@ -155,7 +157,7 @@ public class CommonAccountDAO extends DAO {
             stmt = DAO.getConnection().prepareStatement(
                 "UPDATE commonAccount SET balance = balance + ?  WHERE id = ?");
             stmt.setDouble(1, commonAccount.getBalance());
-            stmt.setInt(3, commonAccount.getId());
+            stmt.setInt(2, commonAccount.getId());
             executeUpdate(stmt);
             
             Calendar operationDate = Calendar.getInstance();
@@ -165,7 +167,8 @@ public class CommonAccountDAO extends DAO {
                     commonAccount.getAgency(),
                     commonAccount.getAccount(),
                     commonAccount.getBalance() - amount,
-                    operationDate
+                    operationDate,
+                    "Saque"
             );
         } catch (SQLException exception) {
             System.err.println("Exception: " + exception.getMessage());
