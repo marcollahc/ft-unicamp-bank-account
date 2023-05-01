@@ -5,7 +5,9 @@ import java.util.Calendar;
 /**
  *
  * @author Mariana
+ * @author Gustavo Romagnolo
  */
+
 public class Account {
     private int id;
     private int customerId;

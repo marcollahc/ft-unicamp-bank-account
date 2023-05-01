@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 /**
  *
  * @author Mariana
+ * @author Gustavo Romagnolo
  */
 public class MovementDAO extends DAO{
     private static MovementDAO instance;
@@ -31,18 +32,26 @@ public class MovementDAO extends DAO{
     }
 
     // CRUD    
-    public Movement create(int accountId, int bank, int agency, int account, double amount, Calendar operationDate, String movementType) {
+    public Movement create(
+        int accountId,
+        double amount,
+        Calendar operationDate,
+        String movementDescription,
+        Integer bank,
+        Integer agency,
+        Integer account
+    ) {
         try {
             PreparedStatement stmt;
-            stmt = DAO.getConnection().prepareStatement("INSERT INTO movement (accountId, bank, agency, account, amount, operationDate, movementType, situation) VALUES (?,?,?,?,?,?,?,?)");
+            stmt = DAO.getConnection().prepareStatement("INSERT INTO movement (accountId, amount, operationDate, movementDescription, situation, bank, agency, account) VALUES (?,?,?,?,?,?,?,?)");
             stmt.setInt(1, accountId);
-            stmt.setInt(2, bank);
-            stmt.setInt(3, agency);
-            stmt.setInt(4, account);
-            stmt.setDouble(5, amount);
-            stmt.setDate(6, new Date(operationDate.getTimeInMillis()));
-            stmt.setString(7, movementType);
-            stmt.setInt(8, MOVEMENT_ACTIVE);
+            stmt.setDouble(2, amount);
+            stmt.setDate(3, new Date(operationDate.getTimeInMillis()));
+            stmt.setString(4, movementDescription);
+            stmt.setInt(5, MOVEMENT_ACTIVE);
+            stmt.setInt(6, bank);
+            stmt.setInt(7, agency);
+            stmt.setInt(8, account);
             executeUpdate(stmt);
         } catch (SQLException ex) {
             Logger.getLogger(MovementDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -59,13 +68,13 @@ public class MovementDAO extends DAO{
             movement = new Movement(
                 rs.getInt("id"),
                 rs.getInt("accountId"),
-                rs.getInt("bank"),
-                rs.getInt("agency"),
-                rs.getInt("account"),
                 rs.getDouble("amount"),
                 operationDate,
                 rs.getInt("situation"),
-                rs.getString("movementType")
+                rs.getString("movementDescription"),
+                rs.getInt("bank"),
+                rs.getInt("agency"),
+                rs.getInt("account")
             );
         } catch (SQLException e) {
             System.err.println("Exception: " + e.getMessage());

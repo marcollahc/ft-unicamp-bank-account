@@ -7,38 +7,37 @@ import java.util.Calendar;
  * @author Mariana
  */
 public class Movement {
-    private int id;
+    private final int id;
     private int accountId;
-    private int bank;
-    private int agency;
-    private int account;
     private double amount;
     private Calendar operationDate;
     private int situation;
-    String movementType;
-
+    private String movementDescription;
+    private Integer bank;
+    private Integer agency;
+    private Integer account;
 
     //Construtor
     public Movement(
         int id,
         int accountId,
-        int bank,
-        int agency,
-        int account,
         double amount,
         Calendar operationDate,
         int situation,
-        String movementType
+        String movementDescription,
+        Integer bank,
+        Integer agency,
+        Integer account
     ) {
         this.id = id;
         this.accountId = accountId;
-        this.bank = bank;
-        this.agency = agency;
-        this.account = account;
         this.amount = amount;
         this.operationDate = operationDate;
         this.situation = situation;
-        this.movementType = movementType;
+        this.movementDescription = movementDescription;
+        this.bank = bank;
+        this.agency = agency;
+        this.account = account;
     }
 
     //Getters and Setters
@@ -54,27 +53,27 @@ public class Movement {
         this.accountId = accountId;
     }
 
-    public int getBank() {
+    public Integer getBank() {
         return bank;
     }
 
-    public void setBank(int bank) {
+    public void setBank(Integer bank) {
         this.bank = bank;
     }
 
-    public int getAgency() {
+    public Integer getAgency() {
         return agency;
     }
 
-    public void setAgency(int agency) {
+    public void setAgency(Integer agency) {
         this.agency = agency;
     }
 
-    public int getAccount() {
+    public Integer getAccount() {
         return account;
     }
 
-    public void setAccount(int account) {
+    public void setAccount(Integer account) {
         this.account = account;
     }
 
@@ -103,10 +102,10 @@ public class Movement {
     }
     
     public String getMovementType() {
-        return movementType;
+        return movementDescription;
     }
 
-    public void setMovementType(String movementType) {
-        this.movementType = movementType;
+    public void setMovementType(String movementDescription) {
+        this.movementDescription = movementDescription;
     }
 }
