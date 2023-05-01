@@ -4,6 +4,10 @@
  */
 package View;
 
+import java.sql.Date;
+import Controller.CustomerController;
+import java.util.Calendar;
+
 /**
  *
  * @author Mariana
@@ -34,8 +38,6 @@ public class vMain extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextPane2 = new javax.swing.JTextPane();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTextPane3 = new javax.swing.JTextPane();
         buttonCadastrar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -86,6 +88,7 @@ public class vMain extends javax.swing.JPanel {
         buttonExcluirComum = new javax.swing.JButton();
         buttonCriarEspecial1 = new javax.swing.JButton();
         buttonCriarPoupanca1 = new javax.swing.JButton();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
@@ -103,12 +106,15 @@ public class vMain extends javax.swing.JPanel {
 
         jScrollPane2.setViewportView(jTextPane2);
 
-        jScrollPane3.setViewportView(jTextPane3);
-
         buttonCadastrar.setBackground(new java.awt.Color(0, 0, 0));
         buttonCadastrar.setForeground(new java.awt.Color(255, 255, 255));
         buttonCadastrar.setText("Cadastrar");
         buttonCadastrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonCadastrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonCadastrarMouseClicked(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
         jLabel5.setText("Cadastrar conta bancária");
@@ -418,9 +424,9 @@ public class vMain extends javax.swing.JPanel {
         buttonExcluir.setForeground(new java.awt.Color(255, 255, 255));
         buttonExcluir.setText("Excluir");
         buttonExcluir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        buttonExcluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonExcluirActionPerformed(evt);
+        buttonExcluir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonExcluirMouseClicked(evt);
             }
         });
 
@@ -462,7 +468,7 @@ public class vMain extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(buttonExcluirEspecial))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel7)
                             .addComponent(jLabel1)
                             .addComponent(jLabel2)
@@ -476,7 +482,7 @@ public class vMain extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4)
-                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(buttonCadastrar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -502,16 +508,16 @@ public class vMain extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                             .addComponent(jLabel3)
                                             .addComponent(jLabel4))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(buttonCadastrar)
@@ -554,10 +560,26 @@ public class vMain extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void buttonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExcluirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonExcluirActionPerformed
+    private void buttonCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCadastrarMouseClicked
+        getCadastro();
+    }//GEN-LAST:event_buttonCadastrarMouseClicked
 
+    private void buttonExcluirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonExcluirMouseClicked
+        
+    }//GEN-LAST:event_buttonExcluirMouseClicked
+    
+    public String fullName;
+    public String cpf;
+    public Calendar birthDate;
+    
+    private void getCadastro() {
+        fullName = jTextPane1.getText();
+        cpf = jTextPane2.getText();
+        birthDate = jDateChooser1.getCalendar();
+        
+        Controller.CustomerController.newCustomer(fullName, cpf, birthDate);
+    }
+        
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonCadastrar;
@@ -571,6 +593,7 @@ public class vMain extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -598,7 +621,6 @@ public class vMain extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
@@ -614,7 +636,6 @@ public class vMain extends javax.swing.JPanel {
     private javax.swing.JTable jTable6;
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JTextPane jTextPane2;
-    private javax.swing.JTextPane jTextPane3;
     private javax.swing.JTextPane jTextPane4;
     private javax.swing.JTextPane jTextPane5;
     private javax.swing.JTextPane jTextPane6;
