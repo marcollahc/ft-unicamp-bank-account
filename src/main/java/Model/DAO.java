@@ -109,9 +109,9 @@ public class DAO {
                                                         situation INTEGER); 
                                                         """);
             executeUpdate(stmt);
-            // Table commonAccount:
+            // Table account:
             stmt = DAO.getConnection().prepareStatement("""
-                                                        CREATE TABLE IF NOT EXISTS commonAccount(
+                                                        CREATE TABLE IF NOT EXISTS account(
                                                         id INTEGER PRIMARY KEY,
                                                         customerId INTEGER,
                                                         bank INTEGER,
