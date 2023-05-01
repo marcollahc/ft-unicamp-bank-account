@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Model;
 
 import java.sql.Date;
@@ -45,8 +41,8 @@ public class CommonAccountDAO extends DAO {
             stmt.setDouble(6, balance);
             stmt.setDouble(7, limitTransaction);
             executeUpdate(stmt);
-        } catch (SQLException ex) {
-            Logger.getLogger(CommonAccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException exception) {
+            Logger.getLogger(CommonAccountDAO.class.getName()).log(Level.SEVERE, null, exception);
         }
         return this.retrieveById(lastId("commonAccount","id"));
     }
@@ -58,8 +54,8 @@ public class CommonAccountDAO extends DAO {
             dt.setTime(rs.getDate("openDate"));
                     
             commonAccount = new CommonAccount(rs.getInt("id"), rs.getInt("customerId"),rs.getInt("bank"), rs.getInt("agency"),rs.getInt("account"),dt,rs.getDouble("balance"),rs.getDouble("limitTransaction"));
-        } catch (SQLException e) {
-            System.err.println("Exception: " + e.getMessage());
+        } catch (SQLException exception) {
+            System.err.println("Exception: " + exception.getMessage());
         }
         return commonAccount;
     }
@@ -72,8 +68,8 @@ public class CommonAccountDAO extends DAO {
             while (rs.next()) {
                 commonAccount.add(buildObject(rs));
             }
-        } catch (SQLException e) {
-            System.err.println("Exception: " + e.getMessage());
+        } catch (SQLException exception) {
+            System.err.println("Exception: " + exception.getMessage());
         }
         return commonAccount;
     }
@@ -113,8 +109,8 @@ public class CommonAccountDAO extends DAO {
             stmt.setDouble(7, commonAccount.getLimitTransaction());
             stmt.setInt(8, commonAccount.getId());
             executeUpdate(stmt);
-        } catch (SQLException e) {
-            System.err.println("Exception: " + e.getMessage());
+        } catch (SQLException exception) {
+            System.err.println("Exception: " + exception.getMessage());
         }
     }
     
@@ -125,8 +121,54 @@ public class CommonAccountDAO extends DAO {
             stmt = DAO.getConnection().prepareStatement("DELETE FROM commonAccount WHERE id = ?");
             stmt.setInt(1, commonAccount.getId());
             executeUpdate(stmt);
-        } catch (SQLException e) {
-            System.err.println("Exception: " + e.getMessage());
+        } catch (SQLException exception) {
+            System.err.println("Exception: " + exception.getMessage());
+        }
+    }
+    
+    public void depositMoney(CommonAccount commonAccount, double amount) {
+        PreparedStatement stmt;
+        try {
+            stmt = DAO.getConnection().prepareStatement(
+                "UPDATE commonAccount SET balance = balance + ?  WHERE id = ?");
+            stmt.setDouble(1, commonAccount.getBalance());
+            stmt.setInt(3, commonAccount.getId());
+            executeUpdate(stmt);
+            
+            Calendar operationDate = Calendar.getInstance();
+            MovementDAO.getInstance().create(
+                    commonAccount.getId(),
+                    commonAccount.getBank(),
+                    commonAccount.getAgency(),
+                    commonAccount.getAccount(),
+                    commonAccount.getBalance() + amount,
+                    operationDate
+            );
+        } catch (SQLException exception) {
+            System.err.println("Exception: " + exception.getMessage());
+        }
+    }
+
+    public void withdrawMoney(CommonAccount commonAccount, double amount) {
+        PreparedStatement stmt;
+        try {
+            stmt = DAO.getConnection().prepareStatement(
+                "UPDATE commonAccount SET balance = balance + ?  WHERE id = ?");
+            stmt.setDouble(1, commonAccount.getBalance());
+            stmt.setInt(3, commonAccount.getId());
+            executeUpdate(stmt);
+            
+            Calendar operationDate = Calendar.getInstance();
+            MovementDAO.getInstance().create(
+                    commonAccount.getId(),
+                    commonAccount.getBank(),
+                    commonAccount.getAgency(),
+                    commonAccount.getAccount(),
+                    commonAccount.getBalance() - amount,
+                    operationDate
+            );
+        } catch (SQLException exception) {
+            System.err.println("Exception: " + exception.getMessage());
         }
     }
 }

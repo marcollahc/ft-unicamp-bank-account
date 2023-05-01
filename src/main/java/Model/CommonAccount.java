@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Model;
 
 import java.util.Calendar;
@@ -21,7 +17,16 @@ public class CommonAccount {
     private double limitTransaction;
     
     //Construtor
-    public CommonAccount(int id, int customerId, int bank, int agency, int account, Calendar openDate, double balance, double limitTransaction) {
+    public CommonAccount(
+        int id,
+        int customerId,
+        int bank,
+        int agency,
+        int account,
+        Calendar openDate,
+        double balance,
+        double limitTransaction
+    ) {
         this.id = id;
         this.customerId = customerId;
         this.bank = bank;

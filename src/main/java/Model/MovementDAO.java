@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Model;
 
 import java.sql.Date;
@@ -59,7 +55,16 @@ public class MovementDAO extends DAO{
             Calendar dt = Calendar.getInstance();
             dt.setTime(rs.getDate("operationDate"));
                     
-            movement = new Movement(rs.getInt("id"),rs.getInt("accountId"),rs.getInt("bank"), rs.getInt("agency"),rs.getInt("account"),rs.getDouble("amount"),dt, rs.getInt("situation"));
+            movement = new Movement(
+                rs.getInt("id"),
+                rs.getInt("accountId"),
+                rs.getInt("bank"),
+                rs.getInt("agency"),
+                rs.getInt("account"),
+                rs.getDouble("amount"),
+                dt, rs.getInt("situation"),
+                rs.getString("movementType")
+            );
         } catch (SQLException e) {
             System.err.println("Exception: " + e.getMessage());
         }

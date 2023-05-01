@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Model;
 
 import java.util.Calendar;
@@ -19,9 +15,21 @@ public class Movement {
     private double amount;
     private Calendar operationDate;
     private int situation;
+    String movementType;
+
 
     //Construtor
-    public Movement(int id, int accountId, int bank, int agency, int account, double amount, Calendar operationDate, int situation) {
+    public Movement(
+        int id,
+        int accountId,
+        int bank,
+        int agency,
+        int account,
+        double amount,
+        Calendar operationDate,
+        int situation,
+        String movementType
+    ) {
         this.id = id;
         this.accountId = accountId;
         this.bank = bank;
@@ -91,5 +99,13 @@ public class Movement {
 
     public void setSituation(int situation) {
         this.situation = situation;
+    }
+    
+    public String getMovementType() {
+        return movementType;
+    }
+
+    public void setMovementType(String movementType) {
+        this.movementType = movementType;
     }
 }
