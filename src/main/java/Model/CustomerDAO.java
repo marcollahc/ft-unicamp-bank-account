@@ -90,6 +90,11 @@ public class CustomerDAO extends DAO{
         List<Customer> customers = this.retrieve("SELECT * FROM customer WHERE id = " + id);
         return (customers.isEmpty()?null:customers.get(0));
     }
+    
+    public Customer retrieveByCPF(String cpf) {
+        List<Customer> customers = this.retrieve("SELECT * FROM customer WHERE cpf = " + cpf);
+        return (customers.isEmpty()?null:customers.get(0));
+    }
 
     // RetrieveBySimilarName
     public List retrieveBySimilarName(String name) {

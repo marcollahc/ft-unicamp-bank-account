@@ -66,7 +66,7 @@ public class AccountDAO extends DAO {
                 )
             """);
             stmt.setInt(1, customerId);
-            stmt.setInt(2, bank);
+            stmt.setInt(2, 286);
             stmt.setInt(3, agency);
             stmt.setInt(4, account);
             stmt.setDate(5, new Date(openDate.getTimeInMillis()));
