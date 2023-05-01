@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -49,9 +50,9 @@ public class MovementDAO extends DAO{
             stmt.setDate(3, new Date(operationDate.getTimeInMillis()));
             stmt.setString(4, movementDescription);
             stmt.setInt(5, MOVEMENT_ACTIVE);
-            stmt.setInt(6, bank);
-            stmt.setInt(7, agency);
-            stmt.setInt(8, account);
+            stmt.setObject(6, bank, Types.INTEGER);
+            stmt.setObject(7, agency, Types.INTEGER);
+            stmt.setObject(8, account, Types.INTEGER);
             executeUpdate(stmt);
         } catch (SQLException ex) {
             Logger.getLogger(MovementDAO.class.getName()).log(Level.SEVERE, null, ex);

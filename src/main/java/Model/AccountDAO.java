@@ -14,6 +14,7 @@ import static Model.DAO.getConnection;
 /**
  *
  * @author Mariana
+ * @author Gustavo Romagnolo
  */
 public class AccountDAO extends DAO {    
     private static AccountDAO instance;
@@ -145,7 +146,12 @@ public class AccountDAO extends DAO {
     public List retrieveByCustomerId(int customerId) {
         return this.retrieve("SELECT * FROM account WHERE customerId = " + customerId);
     }    
-        
+
+    public Account retrieveByAccountNumber(int accountNumber) {
+        List<Account> commonAccount = this.retrieve("SELECT * FROM account WHERE account = " + accountNumber);
+        return (commonAccount.isEmpty()?null:commonAccount.get(0));
+    }
+
     // Updade
     public void update(Account account) {
         PreparedStatement stmt;
@@ -195,54 +201,82 @@ public class AccountDAO extends DAO {
             System.err.println("Exception: " + exception.getMessage());
         }
     }
-    
-    public void depositMoney(Account account, double amount) {
-        PreparedStatement stmt;
-        
-        try {
-            stmt = DAO.getConnection().prepareStatement(
-            "UPDATE account SET balance = balance + ?  WHERE id = ?"
-            );
-            stmt.setDouble(1, account.getBalance());
-            stmt.setInt(2, account.getId());
-            executeUpdate(stmt);
-            
-            Calendar operationDate = Calendar.getInstance();
-            MovementDAO.getInstance().create(
-                    account.getId(),
-                    account.getBank(),
-                    account.getAgency(),
-                    account.getAccount(),
-                    account.getBalance() + amount,
-                    operationDate,
-                    "Depósito"
-            );
-        } catch (SQLException exception) {
-            System.err.println("Exception: " + exception.getMessage());
-        }
+
+    private void createTransferMovement(
+        int senderAccountId, 
+        double senderNewBalance,
+        Calendar operationDate,
+        String operationDescription,
+        int receiverBank,
+        int receiverAgency,
+        int receiverAccountNumber
+    ) {
+        MovementDAO.getInstance().create(
+            senderAccountId,
+            senderNewBalance,
+            operationDate,
+            operationDescription,
+            receiverBank,
+            receiverAgency,
+            receiverAccountNumber
+        );
     }
 
-    public void withdrawMoney(Account account, double amount) {
+    private void createRegularMovement(        
+        int accountId, 
+        double accountNewBalance,
+        Calendar operationDate,
+        String operationDescription
+    ) {
+        MovementDAO.getInstance().create(
+            accountId, 
+            accountNewBalance,
+            operationDate,
+            operationDescription,
+            null,
+            null,
+            null
+        );
+    }
+    
+    public void updateBalance(
+        Account account,
+        double amount,
+        String operationDescription,
+        Integer receiverBank,
+        Integer receiverAgency,
+        Integer receiverAccountNumber
+    )   {
         PreparedStatement stmt;
-        
         try {
+            double accountNewBalance = account.getBalance() + amount;
+
             stmt = DAO.getConnection().prepareStatement(
-            "UPDATE account SET balance = balance + ? WHERE id = ?"
+                "UPDATE account SET balance = ? WHERE id = ?"
             );
-            stmt.setDouble(1, account.getBalance());
+            stmt.setDouble(1, accountNewBalance);
             stmt.setInt(2, account.getId());
             executeUpdate(stmt);
-            
+
             Calendar operationDate = Calendar.getInstance();
-            MovementDAO.getInstance().create(
+            if (receiverBank != null && receiverAgency != null && receiverAccountNumber != null) {
+                this.createTransferMovement(
                     account.getId(),
-                    account.getBank(),
-                    account.getAgency(),
-                    account.getAccount(),
-                    account.getBalance() - amount,
+                    accountNewBalance,
                     operationDate,
-                    "Saque"
-            );
+                    operationDescription,
+                    receiverBank,
+                    receiverAgency,
+                    receiverAccountNumber
+                );
+            } else {
+                this.createRegularMovement(
+                    account.getId(),
+                    accountNewBalance,
+                    operationDate,
+                    operationDescription
+                );
+            }
         } catch (SQLException exception) {
             System.err.println("Exception: " + exception.getMessage());
         }
