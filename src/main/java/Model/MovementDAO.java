@@ -17,8 +17,8 @@ import java.util.logging.Logger;
 public class MovementDAO extends DAO{
     private static MovementDAO instance;
     
-    final int SITUATION_ACTIVE = 1;
-    final int SITUATION_CANCELED = 0;
+    public final static int MOVEMENT_CANCELED = 0;
+    public final static int MOVEMENT_ACTIVE = 1;
 
     private MovementDAO() {
         getConnection();
@@ -42,7 +42,7 @@ public class MovementDAO extends DAO{
             stmt.setDouble(5, amount);
             stmt.setDate(6, new Date(operationDate.getTimeInMillis()));
             stmt.setString(7, movementType);
-            stmt.setInt(8, SITUATION_ACTIVE);
+            stmt.setInt(8, MOVEMENT_ACTIVE);
             executeUpdate(stmt);
         } catch (SQLException ex) {
             Logger.getLogger(MovementDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -113,7 +113,7 @@ public class MovementDAO extends DAO{
         try {
             PreparedStatement stmt;
             stmt = DAO.getConnection().prepareStatement("UPDATE movement SET situation=? WHERE id=?");
-            stmt.setInt(1, SITUATION_CANCELED);
+            stmt.setInt(1, MOVEMENT_CANCELED);
             stmt.setInt(2, movement.getId());
             executeUpdate(stmt);
         } catch (SQLException e) {

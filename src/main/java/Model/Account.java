@@ -6,7 +6,7 @@ import java.util.Calendar;
  *
  * @author Mariana
  */
-public class CommonAccount {
+public class Account {
     private int id;
     private int customerId;
     private int bank;
@@ -14,10 +14,13 @@ public class CommonAccount {
     private int account;
     private Calendar openDate;
     private double balance;
+    private int accountType;
     private double limitTransaction;
-    
+    private int birthdayAccount;
+    private double creditLimit;
+            
     //Construtor
-    public CommonAccount(
+    public Account(
         int id,
         int customerId,
         int bank,
@@ -25,7 +28,10 @@ public class CommonAccount {
         int account,
         Calendar openDate,
         double balance,
-        double limitTransaction
+        int accountType,
+        double limitTransaction,
+        int birthdayAccount,
+        double creditLimit
     ) {
         this.id = id;
         this.customerId = customerId;
@@ -34,7 +40,10 @@ public class CommonAccount {
         this.account = account;
         this.openDate = openDate;
         this.balance = balance;
+        this.accountType = accountType;
         this.limitTransaction = limitTransaction;
+        this.birthdayAccount = birthdayAccount;
+        this.creditLimit = creditLimit;
     }
     
     //Getters and Setters
@@ -89,6 +98,14 @@ public class CommonAccount {
     public void setBalance(double balance) {
         this.balance = balance;
     }
+    
+    public int getAccountType() {
+        return accountType;
+    }
+    
+    public void setAccountType(int accountType) {
+        this.accountType = accountType;
+    }
 
     public double getLimitTransaction() {
         return limitTransaction;
@@ -96,5 +113,21 @@ public class CommonAccount {
 
     public void setLimitTransaction(double limitTransaction) {
         this.limitTransaction = limitTransaction;
+    }
+    
+    public int getBirthdayAccount() {
+        return birthdayAccount;
+    }
+
+    public void setBirthdayAccount(int birthdayAccount) {
+        this.birthdayAccount = birthdayAccount;
+    }
+    
+    public double getCreditLimit() {
+        return creditLimit;
+    }
+
+    public void setCreditLimit(double creditLimit) {
+        this.creditLimit = creditLimit;
     }
 }

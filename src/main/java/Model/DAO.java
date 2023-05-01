@@ -111,15 +111,18 @@ public class DAO {
             executeUpdate(stmt);
             // Table commonAccount:
             stmt = DAO.getConnection().prepareStatement("""
-                                                        CREATE TABLE IF NOT EXISTS commonAccount( 
+                                                        CREATE TABLE IF NOT EXISTS commonAccount(
                                                         id INTEGER PRIMARY KEY,
                                                         customerId INTEGER,
-                                                        bank INTEGER, 
+                                                        bank INTEGER,
                                                         agency INTEGER,
                                                         account INTEGER,
                                                         openDate DATE,
                                                         balance DOUBLE,
-                                                        limitTransaction DOUBLE);
+                                                        accountType INTEGER,
+                                                        limitTransaction DOUBLE,
+                                                        birthdayAccount INTEGER,
+                                                        creditLimit DOUBLE);
                                                         """);
             executeUpdate(stmt);
             // Table savingsAccount:

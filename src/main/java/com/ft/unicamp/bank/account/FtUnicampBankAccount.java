@@ -7,8 +7,9 @@ package com.ft.unicamp.bank.account;
 import Model.Customer;
 import java.util.Calendar;
 import Model.CustomerDAO;
-import Model.CommonAccount;
-import Model.CommonAccountDAO;
+import Model.Account;
+import Model.AccountDAO;
+import static Model.AccountDAO.ACCOUNT_COMMON;
 import Model.Movement;
 import Model.MovementDAO;
 import java.util.List;
@@ -17,7 +18,7 @@ import java.util.List;
  *
  * @author marcos-medeiros
  */
-public class FtUnicampBankAccount {
+public class FtUnicampBankAccount {    
     public static void main(String[] args) {
         Calendar birthdate = Calendar.getInstance();
         birthdate.set(2023, Calendar.APRIL, 26);
@@ -43,28 +44,28 @@ public class FtUnicampBankAccount {
         
         // CustomerDAO.getInstance().delete(customer_by_id);
         
-        // CommonAccount
+        // Account
         System.out.println("CommonAccount");
         Calendar openDate = Calendar.getInstance();
         openDate.set(2023, Calendar.APRIL, 26);
         
-        CommonAccountDAO.getInstance().create(customer_by_id.getId(), 1, 1, 1, openDate, 0, 1000);
-        System.out.println(CommonAccountDAO.getInstance().retrieveAll());
+        AccountDAO.getInstance().create(customer_by_id.getId(), 286, 1, 1, openDate, 0, 0, ACCOUNT_COMMON, 0, 0);
+        System.out.println(AccountDAO.getInstance().retrieveAll());
         
-        CommonAccount common_account_last = (CommonAccount) CommonAccountDAO.getInstance().retrieveLast().get(0);
+        Account common_account_last = (Account) AccountDAO.getInstance().retrieveLast().get(0);
         
-        CommonAccount common_account_by_id = CommonAccountDAO.getInstance().retrieveById(common_account_last.getId());
+        Account common_account_by_id = AccountDAO.getInstance().retrieveById(common_account_last.getId());
         
         System.out.println(common_account_by_id.getAccount());
-        System.out.println(CommonAccountDAO.getInstance().retrieveByCustomerId(customer_by_id.getId()));
+        System.out.println(AccountDAO.getInstance().retrieveByCustomerId(customer_by_id.getId()));
         
         common_account_by_id.setAccount(123);
-        CommonAccountDAO.getInstance().update(common_account_by_id);
+        AccountDAO.getInstance().update(common_account_by_id);
         
-        common_account_by_id = CommonAccountDAO.getInstance().retrieveById(common_account_last.getId());
+        common_account_by_id = AccountDAO.getInstance().retrieveById(common_account_last.getId());
         System.out.println(common_account_by_id.getAccount());
         
-        CommonAccountDAO.getInstance().delete(common_account_by_id);
+        // AccountDAO.getInstance().delete(common_account_by_id);
         
         // Movement
         System.out.println("Movement");
@@ -86,11 +87,11 @@ public class FtUnicampBankAccount {
 
         //Deposit and Withdraw
         System.out.println("Deposit");
-        CommonAccountDAO.getInstance().depositMoney(common_account_by_id, 50.00);
+        AccountDAO.getInstance().depositMoney(common_account_by_id, 50.00);
         System.out.println(MovementDAO.getInstance().retrieveAll());
         
         System.out.println("Withdraw");
-        CommonAccountDAO.getInstance().withdrawMoney(common_account_by_id, 30.00);
+        AccountDAO.getInstance().withdrawMoney(common_account_by_id, 30.00);
         System.out.println(MovementDAO.getInstance().retrieveAll());
     }
 }
