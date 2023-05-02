@@ -905,11 +905,7 @@ public class vMainTest extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCadastrarMouseClicked
-        String fullName = jTextPane1.getText();
-        String cpf = jTextPane2.getText();
-        Calendar birthDate = jDateChooser1.getCalendar();
         
-        Controller.CustomerController.newCustomer(fullName, cpf, birthDate);
     }//GEN-LAST:event_buttonCadastrarMouseClicked
 
     private void buttonExcluirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonExcluirMouseClicked
@@ -918,6 +914,11 @@ public class vMainTest extends javax.swing.JPanel {
 
     private void buttonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrarActionPerformed
         // TODO add your handling code here:
+        String fullName = jTextPane1.getText();
+        String cpf = jTextPane2.getText();
+        Calendar birthDate = jDateChooser1.getCalendar();
+        
+        Controller.CustomerController.newCustomer(fullName, cpf, birthDate);
     }//GEN-LAST:event_buttonCadastrarActionPerformed
 
     private void buttonCadastrar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCadastrar1MouseClicked
@@ -926,9 +927,9 @@ public class vMainTest extends javax.swing.JPanel {
 
     private void buttonCadastrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrar1ActionPerformed
         // TODO add your handling code here:
-        /* int agency = jTextPane3.getText();
-        int account = jTextPane4.getText();
-        double limit = jTextPane7.getText(); */
+        int agency = Integer.valueOf(jTextPane3.getText());
+        int account = Integer.valueOf(jTextPane4.getText());
+        double limit = Double.valueOf(jTextPane7.getText());
     }//GEN-LAST:event_buttonCadastrar1ActionPerformed
 
     private void buttonExcluir1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonExcluir1MouseClicked
@@ -941,6 +942,10 @@ public class vMainTest extends javax.swing.JPanel {
 
     private void buttonCadastrar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrar2ActionPerformed
         // TODO add your handling code here:
+        int agency = Integer.valueOf(jTextPane5.getText());
+        int account = Integer.valueOf(jTextPane6.getText());
+        double limit = Double.valueOf(jTextPane8.getText());
+        double creditLimit = Double.valueOf(jTextPane9.getText());
     }//GEN-LAST:event_buttonCadastrar2ActionPerformed
 
     private void buttonExcluir2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonExcluir2MouseClicked
@@ -953,6 +958,10 @@ public class vMainTest extends javax.swing.JPanel {
 
     private void buttonCadastrar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrar3ActionPerformed
         // TODO add your handling code here:
+        int agency = Integer.valueOf(jTextPane13.getText());
+        int account = Integer.valueOf(jTextPane12.getText());
+        double limit = Double.valueOf(jTextPane1.getText());
+        int birthday = (int) jComboBox1.getSelectedItem();
     }//GEN-LAST:event_buttonCadastrar3ActionPerformed
 
     private void buttonCadastrar3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCadastrar3MouseClicked
@@ -965,6 +974,7 @@ public class vMainTest extends javax.swing.JPanel {
 
     private void buttonCadastrar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrar4ActionPerformed
         // TODO add your handling code here:
+        double amount = Double.valueOf(jTextPane10.getText());
     }//GEN-LAST:event_buttonCadastrar4ActionPerformed
 
     private void buttonExcluir4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonExcluir4MouseClicked
@@ -977,6 +987,10 @@ public class vMainTest extends javax.swing.JPanel {
 
     private void buttonCadastrar6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrar6ActionPerformed
         // TODO add your handling code here:
+        int amount = Integer.valueOf(jTextPane22.getText());
+        String bank = (String) jComboBox3.getSelectedItem();
+        int agency = Integer.valueOf(jTextPane20.getText());
+        int account = Integer.valueOf(jTextPane24.getText());
     }//GEN-LAST:event_buttonCadastrar6ActionPerformed
 
     private void buttonExcluir6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonExcluir6MouseClicked
@@ -989,6 +1003,7 @@ public class vMainTest extends javax.swing.JPanel {
 
     private void buttonCadastrar7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrar7ActionPerformed
         // TODO add your handling code here:
+        double amount = Double.valueOf(jTextPane23.getText());
     }//GEN-LAST:event_buttonCadastrar7ActionPerformed
 
     private void buttonExcluir7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonExcluir7MouseClicked
