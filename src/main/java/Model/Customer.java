@@ -8,10 +8,11 @@ import java.util.Date;
  * @author Mariana
  */
 public class Customer {
-    private int id;
+    private final int id;
     private String name;
     private String cpf;
     private Calendar birthdate;
+    private boolean active;
 
 //Construtor
 
@@ -50,5 +51,13 @@ public class Customer {
 
     public void setDataNasc(Calendar birthdate) {
         this.birthdate = birthdate;
+    }
+    
+    public boolean getActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 }

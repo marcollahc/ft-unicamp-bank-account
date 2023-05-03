@@ -163,11 +163,16 @@ public class vMainTest extends javax.swing.JPanel {
 
         buttonExcluir.setBackground(new java.awt.Color(0, 0, 0));
         buttonExcluir.setForeground(new java.awt.Color(255, 255, 255));
-        buttonExcluir.setText("Excluir");
+        buttonExcluir.setText("Inativar");
         buttonExcluir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         buttonExcluir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 buttonExcluirMouseClicked(evt);
+            }
+        });
+        buttonExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonExcluirActionPerformed(evt);
             }
         });
 
@@ -924,7 +929,7 @@ public class vMainTest extends javax.swing.JPanel {
         String cpf = jTextPane2.getText();
         Calendar birthDate = jDateChooser1.getCalendar();
         
-        Controller.CustomerController.newCustomer(fullName, cpf, birthDate);
+        Controller.CustomerController.newCustomer(fullName, cpf, birthDate, true);
     }//GEN-LAST:event_buttonCadastrarActionPerformed
 
     private void buttonCadastrar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCadastrar1MouseClicked
@@ -1035,6 +1040,12 @@ public class vMainTest extends javax.swing.JPanel {
     private void buttonExcluir7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonExcluir7MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonExcluir7MouseClicked
+
+    private void buttonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExcluirActionPerformed
+        // TODO add your handling code here:
+        String customerCPF = jTextPane2.getText();
+        Controller.CustomerController.inactivateCustomerByCPF(customerCPF);
+    }//GEN-LAST:event_buttonExcluirActionPerformed
 
         
 

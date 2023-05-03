@@ -12,8 +12,8 @@ import java.util.List;
  */
 
 public class CustomerController {    
-    public static void newCustomer(String name, String cpf, Calendar birthdate) {       
-        CustomerDAO.getInstance().create(name, cpf, birthdate);        
+    public static void newCustomer(String name, String cpf, Calendar birthdate, boolean active) {       
+        CustomerDAO.getInstance().create(name, cpf, birthdate, active);        
     }
     
     public static List<Customer> retrieveAllCustumers() {
@@ -28,7 +28,7 @@ public class CustomerController {
         CustomerDAO.getInstance().update(customer);
     }
     
-    public static void deleteCustomer(Customer customer) {
-        CustomerDAO.getInstance().delete(customer);
+    public static void inactivateCustomerByCPF(String customerCPF) {
+        CustomerDAO.getInstance().inactivateByCPF(customerCPF);
     }
 }

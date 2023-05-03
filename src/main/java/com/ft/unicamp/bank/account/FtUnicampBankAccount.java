@@ -25,8 +25,8 @@ public class FtUnicampBankAccount {
     
         //Customer
         System.out.println("Customer");
-        CustomerDAO.getInstance().create("Antônio José da Silva", "12345678981", birthdate);
-        CustomerDAO.getInstance().create("José Antônio da Silva", "12345678982", birthdate);
+        CustomerDAO.getInstance().create("Antônio José da Silva", "12345678981", birthdate, true);
+        CustomerDAO.getInstance().create("José Antônio da Silva", "12345678982", birthdate, true);
         System.out.println(CustomerDAO.getInstance().retrieveAll());
         
         Customer customer_last = (Customer) CustomerDAO.getInstance().retrieveLast().get(0);

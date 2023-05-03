@@ -641,7 +641,7 @@ public class vMain extends javax.swing.JPanel {
         cpf = jTextPane2.getText();
         birthDate = jDateChooser1.getCalendar();
         
-        Controller.CustomerController.newCustomer(fullName, cpf, birthDate);
+        Controller.CustomerController.newCustomer(fullName, cpf, birthDate, true);
     }
     
     public String selectedCPF;

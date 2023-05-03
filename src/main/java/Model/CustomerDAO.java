@@ -34,13 +34,14 @@ public class CustomerDAO extends DAO{
     }
 
 // CRUD    
-    public Customer create(String name, String cpf, Calendar birthdate) {
+    public Customer create(String name, String cpf, Calendar birthdate, boolean active) {
         try {
             PreparedStatement stmt;
-            stmt = DAO.getConnection().prepareStatement("INSERT INTO customer (name, cpf, birthdate) VALUES (?,?,?)");
+            stmt = DAO.getConnection().prepareStatement("INSERT INTO customer (name, cpf, birthdate, active) VALUES (?, ?, ?, ?)");
             stmt.setString(1, name);
             stmt.setString(2, cpf);
             stmt.setDate(3, new Date(birthdate.getTimeInMillis()));
+            stmt.setBoolean(4, active);
             executeUpdate(stmt);
         } catch (SQLException ex) {
             Logger.getLogger(CustomerDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -116,12 +117,12 @@ public class CustomerDAO extends DAO{
         }
     }
     
-    // Delete   
-    public void delete(Customer customer) {
+    // Inactivate   
+    public void inactivateByCPF(String customerCPF) {
         PreparedStatement stmt;
         try {
-            stmt = DAO.getConnection().prepareStatement("DELETE FROM customer WHERE id = ?");
-            stmt.setInt(1, customer.getId());
+            stmt = DAO.getConnection().prepareStatement("UPDATE customer SET active = 0 WHERE cpf = ?");
+            stmt.setString(1, customerCPF);
             executeUpdate(stmt);
         } catch (SQLException e) {
             System.err.println("Exception: " + e.getMessage());

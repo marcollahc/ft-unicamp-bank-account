@@ -88,11 +88,12 @@ public class DAO {
             PreparedStatement stmt;
             // Table customer:
             stmt = DAO.getConnection().prepareStatement("""
-                                                        CREATE TABLE IF NOT EXISTS customer( 
-                                                        id INTEGER PRIMARY KEY, 
-                                                        name VARCHAR, 
-                                                        cpf VARCHAR, 
-                                                        birthdate DATE); 
+                                                        CREATE TABLE IF NOT EXISTS customer(
+                                                        id INTEGER PRIMARY KEY,
+                                                        name VARCHAR,
+                                                        cpf VARCHAR,
+                                                        active BOOLEAN,
+                                                        birthdate DATE);
                                                         """);
             executeUpdate(stmt);
             // Table movement:
@@ -102,7 +103,7 @@ public class DAO {
                                                         accountId INTEGER,
                                                         bank INTEGER,
                                                         agency INTEGER,
-                                                        account INTEGER,                                                        
+                                                        account INTEGER,                                                 
                                                         amount DOUBLE,
                                                         operationDate DATE,
                                                         movementDescription TEXT,
