@@ -11,12 +11,22 @@ import java.util.List;
  * @author marcos-medeiros
  */
 
-public class CustomerController {    
+public class CustomerController {
+    private static Customer tempCustomer = null;
+    
+    public static Customer getTempCustomer() {
+        return CustomerController.tempCustomer;
+    }
+    
+    public static void setTempCustomer(Object tempCustomer) {
+        CustomerController.tempCustomer = (Customer) tempCustomer;
+    }
+    
     public static void newCustomer(String name, String cpf, Calendar birthdate, boolean active) {       
         CustomerDAO.getInstance().create(name, cpf, birthdate, active);        
     }
     
-    public static List<Customer> retrieveAllCustumers() {
+    public static List<Customer> retrieveAllCustomers() {
         return CustomerDAO.getInstance().retrieveAll();
     }
     

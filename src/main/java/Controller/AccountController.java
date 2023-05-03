@@ -11,6 +11,16 @@ import java.util.List;
  */
 
 public class AccountController {
+    public static Account tempAccount = null;
+    
+    public static Account getTempAccount() {
+        return AccountController.tempAccount;
+    }
+    
+    public static void setTempAccount(Object tempAccount) {
+        AccountController.tempAccount = (Account) tempAccount;
+    }
+    
     public static void createAccount (
         int customerId,
         int type,

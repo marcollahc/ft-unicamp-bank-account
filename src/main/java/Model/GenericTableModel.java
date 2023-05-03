@@ -17,7 +17,7 @@ public abstract class GenericTableModel extends AbstractTableModel {
 
     public GenericTableModel(List v_data, String[] columns) {
         this.columns = columns;
-        this.v_data = (ArrayList)v_data;
+        this.v_data = (ArrayList) v_data;
     }
 
     @Override
@@ -56,6 +56,7 @@ public abstract class GenericTableModel extends AbstractTableModel {
 
     public void addListOfItems(List<Object> v_itens) {
         this.clear();
+        
         for (Object obj : v_itens) {
             this.addItem(obj);
         }

@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class CustomerTableModel extends GenericTableModel {
     public CustomerTableModel(List v_data) {
-        super(v_data, new String[]{"ID", "Nome", "CPF", "Telefone"});
+        super(v_data, new String[]{"ID", "Nome", "CPF", "Data de nascimento"});
     }
     
     @Override

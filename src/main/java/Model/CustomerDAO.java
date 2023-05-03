@@ -78,28 +78,28 @@ public class CustomerDAO extends DAO{
     
     // RetrieveAll
     public List retrieveAll() {
-        return this.retrieve("SELECT * FROM customer");
+        return this.retrieve("SELECT * FROM customer WHERE active = 1");
     }
     
     // RetrieveLast
     public List retrieveLast(){
-        return this.retrieve("SELECT * FROM customer WHERE id = " + lastId("customer","id"));
+        return this.retrieve("SELECT * FROM customer WHERE id = " + lastId("customer","id") + " AND active = 1");
     }
 
     // RetrieveById
     public Customer retrieveById(int id) {
-        List<Customer> customers = this.retrieve("SELECT * FROM customer WHERE id = " + id);
+        List<Customer> customers = this.retrieve("SELECT * FROM customer WHERE id = " + id + " AND active = 1");
         return (customers.isEmpty()?null:customers.get(0));
     }
     
     public Customer retrieveByCPF(String cpf) {
-        List<Customer> customers = this.retrieve("SELECT * FROM customer WHERE cpf = " + cpf);
+        List<Customer> customers = this.retrieve("SELECT * FROM customer WHERE cpf = " + cpf + "AND active = 1");
         return (customers.isEmpty()?null:customers.get(0));
     }
 
     // RetrieveBySimilarName
     public List retrieveBySimilarName(String name) {
-        return this.retrieve("SELECT * FROM customer WHERE name LIKE '%" + name + "%'");
+        return this.retrieve("SELECT * FROM customer WHERE name LIKE '%" + name + "%' AND active = 1");
     }    
         
     // Updade

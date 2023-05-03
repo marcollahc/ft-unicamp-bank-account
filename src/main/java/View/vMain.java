@@ -4,10 +4,17 @@
  */
 package View;
 
+import Controller.AccountController;
+import Controller.CustomerController;
+import Controller.MovementController;
 import Model.Account;
 import static Model.AccountDAO.ACCOUNT_COMMON;
 import static Model.AccountDAO.ACCOUNT_SAVINGS;
 import static Model.AccountDAO.ACCOUNT_SPECIAL;
+import Model.AccountTableModel;
+import Model.CustomerTableModel;
+import Model.GenericTableModel;
+import Model.MovementTableModel;
 import java.util.Calendar;
 import javax.swing.JFrame;
 
@@ -781,44 +788,17 @@ public class vMain extends javax.swing.JFrame {
         jLabel19.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
         jLabel19.setText("Clientes");
 
-        jTable7.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Nome", "CPF", "Data de nascimento"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Object.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
+        jTable7.setModel(new CustomerTableModel(Controller.CustomerController.retrieveAllCustomers()));
+        jTable7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jTable7MousePressed(evt);
             }
         });
         jScrollPane15.setViewportView(jTable7);
 
-        jTable8.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Nome", "CPF", "Data de nascimento"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Object.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
+        jTable8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jTable8MousePressed(evt);
             }
         });
         jScrollPane16.setViewportView(jTable8);
@@ -826,25 +806,6 @@ public class vMain extends javax.swing.JFrame {
         jLabel20.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
         jLabel20.setText("Contas");
 
-        jTable9.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Nome", "CPF", "Data de nascimento"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Object.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
         jScrollPane17.setViewportView(jTable9);
 
         jLabel21.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
@@ -927,6 +888,8 @@ public class vMain extends javax.swing.JFrame {
         Calendar birthDate = jDateChooser1.getCalendar();
         
         Controller.CustomerController.newCustomer(fullName, cpf, birthDate, true);
+        
+        this.loadCustomers();
     }//GEN-LAST:event_buttonCadastrarActionPerformed
 
     private void buttonCadastrar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCadastrar1MouseClicked
@@ -940,6 +903,8 @@ public class vMain extends javax.swing.JFrame {
         double limit = Double.valueOf(jTextPane7.getText());
         
         Controller.AccountController.createAccount(1, ACCOUNT_COMMON, agency, account, limit, 0, 0);
+        
+        this.loadAccounts();
     }//GEN-LAST:event_buttonCadastrar1ActionPerformed
 
     private void buttonExcluir1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonExcluir1MouseClicked
@@ -958,6 +923,8 @@ public class vMain extends javax.swing.JFrame {
         double creditLimit = Double.valueOf(jTextPane9.getText());
         
         Controller.AccountController.createAccount(1, ACCOUNT_SPECIAL, agency, account, limit, 0, creditLimit);
+        
+        this.loadAccounts();
     }//GEN-LAST:event_buttonCadastrar2ActionPerformed
 
     private void buttonExcluir2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonExcluir2MouseClicked
@@ -977,6 +944,8 @@ public class vMain extends javax.swing.JFrame {
         int birthday = Integer.valueOf(birthdayAccount);
         
         Controller.AccountController.createAccount(1, ACCOUNT_SAVINGS, agency, account, limit, birthday, 0);
+        
+        this.loadAccounts();
     }//GEN-LAST:event_buttonCadastrar3ActionPerformed
 
     private void buttonCadastrar3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCadastrar3MouseClicked
@@ -994,6 +963,8 @@ public class vMain extends javax.swing.JFrame {
         Account customerAccount = Controller.AccountController.retrieveCustomerAccount(1).get(0);
         
         Controller.AccountController.depositMoney(customerAccount, amount);
+        
+        this.loadMovements();
     }//GEN-LAST:event_buttonCadastrar4ActionPerformed
 
     private void buttonExcluir4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonExcluir4MouseClicked
@@ -1016,6 +987,8 @@ public class vMain extends javax.swing.JFrame {
         Account customerAccount = Controller.AccountController.retrieveCustomerAccount(1).get(0);
         
         Controller.AccountController.moneyTransfer(customerAccount, amount, bankName, agency, account);
+        
+        this.loadMovements();
     }//GEN-LAST:event_buttonCadastrar6ActionPerformed
 
     private void buttonExcluir6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonExcluir6MouseClicked
@@ -1033,6 +1006,8 @@ public class vMain extends javax.swing.JFrame {
         Account customerAccount = Controller.AccountController.retrieveCustomerAccount(1).get(0);
         
         Controller.AccountController.withdrawMoney(customerAccount, amount);
+        
+        this.loadMovements();
     }//GEN-LAST:event_buttonCadastrar7ActionPerformed
 
     private void buttonExcluir7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonExcluir7MouseClicked
@@ -1043,7 +1018,27 @@ public class vMain extends javax.swing.JFrame {
         // TODO add your handling code here:
         String customerCPF = jTextPane2.getText();
         Controller.CustomerController.inactivateCustomerByCPF(customerCPF);
+        
+        this.loadCustomers();
     }//GEN-LAST:event_buttonExcluirActionPerformed
+
+    private void jTable7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable7MousePressed
+        // TODO add your handling code here:
+        Object data = ((GenericTableModel) jTable7.getModel()).getItem(jTable7.getSelectedRow());
+        
+        CustomerController.setTempCustomer(data);
+        
+        this.loadAccounts();
+    }//GEN-LAST:event_jTable7MousePressed
+
+    private void jTable8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable8MousePressed
+        // TODO add your handling code here:
+        Object data = ((GenericTableModel) jTable8.getModel()).getItem(jTable8.getSelectedRow());
+        
+        AccountController.setTempAccount(data);
+        
+        this.loadMovements();
+    }//GEN-LAST:event_jTable8MousePressed
 
     /**
      * @param args the command line arguments
@@ -1081,6 +1076,24 @@ public class vMain extends javax.swing.JFrame {
             }
         });
     }    
+    
+    public void loadCustomers() {
+        jTable7.setModel(new CustomerTableModel(Controller.CustomerController.retrieveAllCustomers()));
+        
+        System.out.println("acionou: loadCustomers");
+    }
+    
+    public void loadAccounts() {
+        jTable8.setModel(new AccountTableModel(Controller.AccountController.retrieveCustomerAccount(CustomerController.getTempCustomer().getId())));
+        
+        System.out.println("acionou: loadAccounts");
+    }
+    
+    public void loadMovements() {
+        jTable9.setModel(new MovementTableModel(Controller.MovementController.listMovementsAccount(AccountController.getTempAccount().getId())));
+        
+        System.out.println("acionou: loadMovements");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonCadastrar;
