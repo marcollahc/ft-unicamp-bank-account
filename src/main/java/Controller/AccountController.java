@@ -84,6 +84,7 @@ public class AccountController {
 
     public static void withdrawMoney(Account customerAccount, double amount) {
         boolean accountOperationIsValid = AccountController.accountOperationIsValid(customerAccount, amount);
+        
         if (accountOperationIsValid) {
             AccountDAO.getInstance().updateBalance(
                 customerAccount,
@@ -144,13 +145,13 @@ public class AccountController {
     }
 
     private static boolean accountOperationIsValid(Account customerAccount, double amount) {
-        boolean isCommonAccount = customerAccount.getAccountType() == 0;
-        boolean isSpecialAccount = customerAccount.getAccountType() == 1;
-        boolean operationGreaterThanBalance = amount > customerAccount.getBalance();
-        boolean operationGreaterThanBalanceAndLimit = amount > customerAccount.getBalance() + customerAccount.getCreditLimit();
+        boolean isCommonAccount = (customerAccount.getAccountType() == AccountDAO.ACCOUNT_COMMON);
+        boolean isSpecialAccount = (customerAccount.getAccountType() == AccountDAO.ACCOUNT_SPECIAL);
+        boolean operationGreaterThanBalance = (amount > customerAccount.getBalance());
+        boolean operationGreaterThanBalanceAndLimit = (amount > customerAccount.getBalance() + customerAccount.getCreditLimit());
 
-        boolean commonAccountOperationIsValid = isCommonAccount && !operationGreaterThanBalance;
-        boolean specialAccountOperationIsValid = isSpecialAccount && !operationGreaterThanBalanceAndLimit;
+        boolean commonAccountOperationIsValid = (isCommonAccount && !operationGreaterThanBalance);
+        boolean specialAccountOperationIsValid = (isSpecialAccount && !operationGreaterThanBalanceAndLimit);
 
         return commonAccountOperationIsValid || specialAccountOperationIsValid;
     }

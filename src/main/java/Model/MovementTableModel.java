@@ -52,7 +52,7 @@ public class MovementTableModel extends GenericTableModel {
             case 4:
                 return movement.getAccount();
             case 5:     
-                return (movement.getMovementType().equals("Deposito")) ? "+" + movement.getAmount() : "-" + movement.getAmount();
+                return (movement.getMovementType().equals("Depósito")) ? "+" + movement.getAmount() : "-" + movement.getAmount();
             default:
                 throw new IndexOutOfBoundsException("column_index out of bounds");
         }

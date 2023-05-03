@@ -902,7 +902,7 @@ public class vMain extends javax.swing.JFrame {
         int account = Integer.valueOf(jTextPane4.getText());
         double limit = Double.valueOf(jTextPane7.getText());
         
-        Controller.AccountController.createAccount(1, ACCOUNT_COMMON, agency, account, limit, 0, 0);
+        Controller.AccountController.createAccount(CustomerController.getTempCustomer().getId(), ACCOUNT_COMMON, agency, account, limit, 0, 0);
         
         this.loadAccounts();
     }//GEN-LAST:event_buttonCadastrar1ActionPerformed
@@ -922,7 +922,7 @@ public class vMain extends javax.swing.JFrame {
         double limit = Double.valueOf(jTextPane8.getText());
         double creditLimit = Double.valueOf(jTextPane9.getText());
         
-        Controller.AccountController.createAccount(1, ACCOUNT_SPECIAL, agency, account, limit, 0, creditLimit);
+        Controller.AccountController.createAccount(CustomerController.getTempCustomer().getId(), ACCOUNT_SPECIAL, agency, account, limit, 0, creditLimit);
         
         this.loadAccounts();
     }//GEN-LAST:event_buttonCadastrar2ActionPerformed
@@ -943,7 +943,7 @@ public class vMain extends javax.swing.JFrame {
         String birthdayAccount = (String) jComboBox1.getSelectedItem();
         int birthday = Integer.valueOf(birthdayAccount);
         
-        Controller.AccountController.createAccount(1, ACCOUNT_SAVINGS, agency, account, limit, birthday, 0);
+        Controller.AccountController.createAccount(CustomerController.getTempCustomer().getId(), ACCOUNT_SAVINGS, agency, account, limit, birthday, 0);
         
         this.loadAccounts();
     }//GEN-LAST:event_buttonCadastrar3ActionPerformed
@@ -960,7 +960,7 @@ public class vMain extends javax.swing.JFrame {
         // TODO add your handling code here:
         double amount = Double.valueOf(jTextPane10.getText());
         
-        Account customerAccount = Controller.AccountController.retrieveCustomerAccount(1).get(0);
+        Account customerAccount = Controller.AccountController.getTempAccount();
         
         Controller.AccountController.depositMoney(customerAccount, amount);
         
@@ -984,7 +984,7 @@ public class vMain extends javax.swing.JFrame {
         int agency = Integer.valueOf(jTextPane20.getText());
         int account = Integer.valueOf(jTextPane24.getText());
         
-        Account customerAccount = Controller.AccountController.retrieveCustomerAccount(1).get(0);
+        Account customerAccount = Controller.AccountController.getTempAccount();
         
         Controller.AccountController.moneyTransfer(customerAccount, amount, bankName, agency, account);
         
@@ -1003,7 +1003,7 @@ public class vMain extends javax.swing.JFrame {
         // TODO add your handling code here:
         double amount = Double.valueOf(jTextPane23.getText());
         
-        Account customerAccount = Controller.AccountController.retrieveCustomerAccount(1).get(0);
+        Account customerAccount = Controller.AccountController.getTempAccount();
         
         Controller.AccountController.withdrawMoney(customerAccount, amount);
         
