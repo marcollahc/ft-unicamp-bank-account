@@ -1,28 +1,21 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package View;
+package vMain;
 
-import java.sql.Date;
-import Controller.CustomerController;
 import Model.Account;
-import Model.AccountDAO;
-import static Model.AccountDAO.ACCOUNT_COMMON;
-import static Model.AccountDAO.ACCOUNT_SAVINGS;
-import static Model.AccountDAO.ACCOUNT_SPECIAL;
-import java.util.Calendar;
 
 /**
  *
- * @author Mariana
+ * @author marcos-medeiros
  */
-public class vMainTest extends javax.swing.JPanel {
+public class NewJFrame extends javax.swing.JFrame {
 
     /**
-     * Creates new form vMain
+     * Creates new form NewJFrame
      */
-    public vMainTest() {
+    public NewJFrame() {
         initComponents();
     }
 
@@ -35,20 +28,35 @@ public class vMainTest extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollBar1 = new javax.swing.JScrollBar();
         jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jTabbedPane2 = new javax.swing.JTabbedPane();
+        jPanel6 = new javax.swing.JPanel();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        jTextPane10 = new javax.swing.JTextPane();
+        jLabel18 = new javax.swing.JLabel();
+        buttonCadastrar4 = new javax.swing.JButton();
+        buttonExcluir4 = new javax.swing.JButton();
+        jPanel7 = new javax.swing.JPanel();
+        jScrollPane24 = new javax.swing.JScrollPane();
+        jTextPane23 = new javax.swing.JTextPane();
+        jLabel29 = new javax.swing.JLabel();
+        buttonCadastrar7 = new javax.swing.JButton();
+        buttonExcluir7 = new javax.swing.JButton();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel25 = new javax.swing.JLabel();
+        jScrollPane21 = new javax.swing.JScrollPane();
+        jTextPane20 = new javax.swing.JTextPane();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jScrollPane23 = new javax.swing.JScrollPane();
+        jTextPane22 = new javax.swing.JTextPane();
+        jLabel28 = new javax.swing.JLabel();
+        buttonCadastrar6 = new javax.swing.JButton();
+        buttonExcluir6 = new javax.swing.JButton();
+        jScrollPane25 = new javax.swing.JScrollPane();
+        jTextPane24 = new javax.swing.JTextPane();
+        jComboBox3 = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
-        jLabel3 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextPane2 = new javax.swing.JTextPane();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jLabel4 = new javax.swing.JLabel();
-        buttonCadastrar = new javax.swing.JButton();
-        buttonExcluir = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -91,34 +99,18 @@ public class vMainTest extends javax.swing.JPanel {
         buttonCadastrar3 = new javax.swing.JButton();
         buttonExcluir3 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jTabbedPane2 = new javax.swing.JTabbedPane();
-        jPanel6 = new javax.swing.JPanel();
-        jScrollPane11 = new javax.swing.JScrollPane();
-        jTextPane10 = new javax.swing.JTextPane();
-        jLabel18 = new javax.swing.JLabel();
-        buttonCadastrar4 = new javax.swing.JButton();
-        buttonExcluir4 = new javax.swing.JButton();
-        jPanel7 = new javax.swing.JPanel();
-        jScrollPane24 = new javax.swing.JScrollPane();
-        jTextPane23 = new javax.swing.JTextPane();
-        jLabel29 = new javax.swing.JLabel();
-        buttonCadastrar7 = new javax.swing.JButton();
-        buttonExcluir7 = new javax.swing.JButton();
-        jPanel8 = new javax.swing.JPanel();
-        jLabel25 = new javax.swing.JLabel();
-        jScrollPane21 = new javax.swing.JScrollPane();
-        jTextPane20 = new javax.swing.JTextPane();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        jScrollPane23 = new javax.swing.JScrollPane();
-        jTextPane22 = new javax.swing.JTextPane();
-        jLabel28 = new javax.swing.JLabel();
-        buttonCadastrar6 = new javax.swing.JButton();
-        buttonExcluir6 = new javax.swing.JButton();
-        jScrollPane25 = new javax.swing.JScrollPane();
-        jTextPane24 = new javax.swing.JTextPane();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        buttonExcluir = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextPane2 = new javax.swing.JTextPane();
+        jLabel3 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextPane1 = new javax.swing.JTextPane();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        buttonCadastrar = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jScrollPane15 = new javax.swing.JScrollPane();
@@ -129,356 +121,9 @@ public class vMainTest extends javax.swing.JPanel {
         jScrollPane17 = new javax.swing.JScrollPane();
         jTable9 = new javax.swing.JTable();
         jLabel21 = new javax.swing.JLabel();
+        jScrollBar1 = new javax.swing.JScrollBar();
 
-        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setFont(new java.awt.Font("Yu Gothic UI", 0, 12)); // NOI18N
-
-        jLabel1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
-        jLabel1.setText("Clientes");
-
-        jLabel2.setText("Nome completo");
-
-        jScrollPane1.setViewportView(jTextPane1);
-
-        jLabel3.setText("CPF");
-
-        jScrollPane2.setViewportView(jTextPane2);
-
-        jLabel4.setText("Data de nascimento");
-
-        buttonCadastrar.setBackground(new java.awt.Color(0, 0, 0));
-        buttonCadastrar.setForeground(new java.awt.Color(255, 255, 255));
-        buttonCadastrar.setText("Salvar");
-        buttonCadastrar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        buttonCadastrar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                buttonCadastrarMouseClicked(evt);
-            }
-        });
-        buttonCadastrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCadastrarActionPerformed(evt);
-            }
-        });
-
-        buttonExcluir.setBackground(new java.awt.Color(0, 0, 0));
-        buttonExcluir.setForeground(new java.awt.Color(255, 255, 255));
-        buttonExcluir.setText("Inativar");
-        buttonExcluir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        buttonExcluir.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                buttonExcluirMouseClicked(evt);
-            }
-        });
-        buttonExcluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonExcluirActionPerformed(evt);
-            }
-        });
-
-        jLabel5.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
-        jLabel5.setText("Contas");
-
-        jScrollPane4.setViewportView(jTextPane3);
-
-        jLabel6.setText("Agência");
-
-        jLabel7.setText("Conta");
-
-        jScrollPane5.setViewportView(jTextPane4);
-
-        jScrollPane8.setViewportView(jTextPane7);
-
-        jLabel10.setText("Limite por transação");
-
-        buttonCadastrar1.setBackground(new java.awt.Color(0, 0, 0));
-        buttonCadastrar1.setForeground(new java.awt.Color(255, 255, 255));
-        buttonCadastrar1.setText("Salvar");
-        buttonCadastrar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        buttonCadastrar1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                buttonCadastrar1MouseClicked(evt);
-            }
-        });
-        buttonCadastrar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCadastrar1ActionPerformed(evt);
-            }
-        });
-
-        buttonExcluir1.setBackground(new java.awt.Color(0, 0, 0));
-        buttonExcluir1.setForeground(new java.awt.Color(255, 255, 255));
-        buttonExcluir1.setText("Excluir");
-        buttonExcluir1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        buttonExcluir1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                buttonExcluir1MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane8)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel10)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(buttonCadastrar1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonExcluir1)))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonCadastrar1)
-                    .addComponent(buttonExcluir1))
-                .addContainerGap(7, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Comum", jPanel1);
-
-        jLabel8.setText("Agência");
-
-        jScrollPane6.setViewportView(jTextPane5);
-
-        jScrollPane7.setViewportView(jTextPane6);
-
-        jLabel9.setText("Conta");
-
-        jLabel11.setText("Limite por transação");
-
-        jScrollPane9.setViewportView(jTextPane8);
-
-        jLabel12.setText("Limite de crédito");
-
-        jScrollPane10.setViewportView(jTextPane9);
-
-        buttonCadastrar2.setBackground(new java.awt.Color(0, 0, 0));
-        buttonCadastrar2.setForeground(new java.awt.Color(255, 255, 255));
-        buttonCadastrar2.setText("Salvar");
-        buttonCadastrar2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        buttonCadastrar2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                buttonCadastrar2MouseClicked(evt);
-            }
-        });
-        buttonCadastrar2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCadastrar2ActionPerformed(evt);
-            }
-        });
-
-        buttonExcluir2.setBackground(new java.awt.Color(0, 0, 0));
-        buttonExcluir2.setForeground(new java.awt.Color(255, 255, 255));
-        buttonExcluir2.setText("Excluir");
-        buttonExcluir2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        buttonExcluir2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                buttonExcluir2MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jScrollPane9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.LEADING))
-                            .addComponent(jLabel11))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel12)
-                                .addGap(35, 35, 35))
-                            .addComponent(jScrollPane10)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(buttonCadastrar2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonExcluir2)))
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonCadastrar2)
-                    .addComponent(buttonExcluir2))
-                .addContainerGap(7, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Especial", jPanel2);
-
-        jLabel13.setText("Aniversário poupança");
-
-        jScrollPane12.setViewportView(jTextPane11);
-
-        jLabel14.setText("Limite por transação");
-
-        jLabel15.setText("Conta");
-
-        jScrollPane13.setViewportView(jTextPane12);
-
-        jScrollPane14.setViewportView(jTextPane13);
-
-        jLabel16.setText("Agência");
-
-        buttonCadastrar3.setBackground(new java.awt.Color(0, 0, 0));
-        buttonCadastrar3.setForeground(new java.awt.Color(255, 255, 255));
-        buttonCadastrar3.setText("Salvar");
-        buttonCadastrar3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        buttonCadastrar3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                buttonCadastrar3MouseClicked(evt);
-            }
-        });
-        buttonCadastrar3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCadastrar3ActionPerformed(evt);
-            }
-        });
-
-        buttonExcluir3.setBackground(new java.awt.Color(0, 0, 0));
-        buttonExcluir3.setForeground(new java.awt.Color(255, 255, 255));
-        buttonExcluir3.setText("Excluir");
-        buttonExcluir3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        buttonExcluir3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                buttonExcluir3MouseClicked(evt);
-            }
-        });
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jScrollPane12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
-                                .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jScrollPane14, javax.swing.GroupLayout.Alignment.LEADING))
-                            .addComponent(jLabel14))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane13)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel13)
-                                    .addComponent(jLabel15))
-                                .addGap(0, 19, Short.MAX_VALUE))
-                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(buttonCadastrar3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonExcluir3)))
-                .addContainerGap())
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel15)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel16)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel13)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonCadastrar3)
-                    .addComponent(buttonExcluir3))
-                .addContainerGap(7, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Poupança", jPanel5);
-
-        jLabel17.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
-        jLabel17.setText("Movimentações");
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jScrollPane11.setViewportView(jTextPane10);
 
@@ -709,44 +354,388 @@ public class vMainTest extends javax.swing.JPanel {
 
         jTabbedPane2.addTab("Transferir", jPanel8);
 
+        jLabel2.setText("Nome completo");
+
+        jScrollPane4.setViewportView(jTextPane3);
+
+        jLabel6.setText("Agência");
+
+        jLabel7.setText("Conta");
+
+        jScrollPane5.setViewportView(jTextPane4);
+
+        jScrollPane8.setViewportView(jTextPane7);
+
+        jLabel10.setText("Limite por transação");
+
+        buttonCadastrar1.setBackground(new java.awt.Color(0, 0, 0));
+        buttonCadastrar1.setForeground(new java.awt.Color(255, 255, 255));
+        buttonCadastrar1.setText("Salvar");
+        buttonCadastrar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        buttonCadastrar1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonCadastrar1MouseClicked(evt);
+            }
+        });
+        buttonCadastrar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCadastrar1ActionPerformed(evt);
+            }
+        });
+
+        buttonExcluir1.setBackground(new java.awt.Color(0, 0, 0));
+        buttonExcluir1.setForeground(new java.awt.Color(255, 255, 255));
+        buttonExcluir1.setText("Excluir");
+        buttonExcluir1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        buttonExcluir1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonExcluir1MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane8)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(buttonCadastrar1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonExcluir1)))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonCadastrar1)
+                    .addComponent(buttonExcluir1))
+                .addContainerGap(7, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Comum", jPanel1);
+
+        jLabel8.setText("Agência");
+
+        jScrollPane6.setViewportView(jTextPane5);
+
+        jScrollPane7.setViewportView(jTextPane6);
+
+        jLabel9.setText("Conta");
+
+        jLabel11.setText("Limite por transação");
+
+        jScrollPane9.setViewportView(jTextPane8);
+
+        jLabel12.setText("Limite de crédito");
+
+        jScrollPane10.setViewportView(jTextPane9);
+
+        buttonCadastrar2.setBackground(new java.awt.Color(0, 0, 0));
+        buttonCadastrar2.setForeground(new java.awt.Color(255, 255, 255));
+        buttonCadastrar2.setText("Salvar");
+        buttonCadastrar2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        buttonCadastrar2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonCadastrar2MouseClicked(evt);
+            }
+        });
+        buttonCadastrar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCadastrar2ActionPerformed(evt);
+            }
+        });
+
+        buttonExcluir2.setBackground(new java.awt.Color(0, 0, 0));
+        buttonExcluir2.setForeground(new java.awt.Color(255, 255, 255));
+        buttonExcluir2.setText("Excluir");
+        buttonExcluir2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        buttonExcluir2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonExcluir2MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jScrollPane9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
+                                .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(jLabel11))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel12)
+                                .addGap(35, 35, 35))
+                            .addComponent(jScrollPane10)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(buttonCadastrar2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonExcluir2)))
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonCadastrar2)
+                    .addComponent(buttonExcluir2))
+                .addContainerGap(7, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Especial", jPanel2);
+
+        jLabel13.setText("Aniversário poupança");
+
+        jScrollPane12.setViewportView(jTextPane11);
+
+        jLabel14.setText("Limite por transação");
+
+        jLabel15.setText("Conta");
+
+        jScrollPane13.setViewportView(jTextPane12);
+
+        jScrollPane14.setViewportView(jTextPane13);
+
+        jLabel16.setText("Agência");
+
+        buttonCadastrar3.setBackground(new java.awt.Color(0, 0, 0));
+        buttonCadastrar3.setForeground(new java.awt.Color(255, 255, 255));
+        buttonCadastrar3.setText("Salvar");
+        buttonCadastrar3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        buttonCadastrar3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonCadastrar3MouseClicked(evt);
+            }
+        });
+        buttonCadastrar3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCadastrar3ActionPerformed(evt);
+            }
+        });
+
+        buttonExcluir3.setBackground(new java.awt.Color(0, 0, 0));
+        buttonExcluir3.setForeground(new java.awt.Color(255, 255, 255));
+        buttonExcluir3.setText("Excluir");
+        buttonExcluir3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        buttonExcluir3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonExcluir3MouseClicked(evt);
+            }
+        });
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jScrollPane12, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
+                                .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jScrollPane14, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(jLabel14))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane13)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel13)
+                                    .addComponent(jLabel15))
+                                .addGap(0, 25, Short.MAX_VALUE))
+                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(buttonCadastrar3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonExcluir3)))
+                .addContainerGap())
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabel15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabel16)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabel14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabel13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonCadastrar3)
+                    .addComponent(buttonExcluir3))
+                .addContainerGap(7, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Poupança", jPanel5);
+
+        jLabel1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
+        jLabel1.setText("Clientes");
+
+        jLabel4.setText("Data de nascimento");
+
+        jLabel17.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
+        jLabel17.setText("Movimentações");
+
+        buttonExcluir.setBackground(new java.awt.Color(0, 0, 0));
+        buttonExcluir.setForeground(new java.awt.Color(255, 255, 255));
+        buttonExcluir.setText("Inativar");
+        buttonExcluir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        buttonExcluir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonExcluirMouseClicked(evt);
+            }
+        });
+        buttonExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonExcluirActionPerformed(evt);
+            }
+        });
+
+        jScrollPane2.setViewportView(jTextPane2);
+
+        jLabel3.setText("CPF");
+
+        jScrollPane1.setViewportView(jTextPane1);
+
+        buttonCadastrar.setBackground(new java.awt.Color(0, 0, 0));
+        buttonCadastrar.setForeground(new java.awt.Color(255, 255, 255));
+        buttonCadastrar.setText("Salvar");
+        buttonCadastrar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        buttonCadastrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonCadastrarMouseClicked(evt);
+            }
+        });
+        buttonCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCadastrarActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
+        jLabel5.setText("Contas");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTabbedPane2, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1)
-                            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(buttonCadastrar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(buttonExcluir))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel5))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addContainerGap())
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel17)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTabbedPane2)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jTabbedPane1)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(buttonCadastrar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonExcluir))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel5))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel17)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -889,8 +878,8 @@ public class vMainTest extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -906,31 +895,72 @@ public class vMainTest extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 728, Short.MAX_VALUE)
+                    .addComponent(jScrollBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap())))
         );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCadastrarMouseClicked
-        
-    }//GEN-LAST:event_buttonCadastrarMouseClicked
-
-    private void buttonExcluirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonExcluirMouseClicked
-
-    }//GEN-LAST:event_buttonExcluirMouseClicked
-
-    private void buttonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrarActionPerformed
+    private void buttonCadastrar4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCadastrar4MouseClicked
         // TODO add your handling code here:
-        String fullName = jTextPane1.getText();
-        String cpf = jTextPane2.getText();
-        Calendar birthDate = jDateChooser1.getCalendar();
-        
-        Controller.CustomerController.newCustomer(fullName, cpf, birthDate, true);
-    }//GEN-LAST:event_buttonCadastrarActionPerformed
+    }//GEN-LAST:event_buttonCadastrar4MouseClicked
+
+    private void buttonCadastrar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrar4ActionPerformed
+        // TODO add your handling code here:
+        double amount = Double.valueOf(jTextPane10.getText());
+
+        Account customerAccount = Controller.AccountController.retrieveCustomerAccount(1).get(0);
+
+        Controller.AccountController.depositMoney(customerAccount, amount);
+    }//GEN-LAST:event_buttonCadastrar4ActionPerformed
+
+    private void buttonExcluir4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonExcluir4MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonExcluir4MouseClicked
+
+    private void buttonCadastrar7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCadastrar7MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonCadastrar7MouseClicked
+
+    private void buttonCadastrar7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrar7ActionPerformed
+        // TODO add your handling code here:
+        double amount = Double.valueOf(jTextPane23.getText());
+
+        Account customerAccount = Controller.AccountController.retrieveCustomerAccount(1).get(0);
+
+        Controller.AccountController.withdrawMoney(customerAccount, amount);
+    }//GEN-LAST:event_buttonCadastrar7ActionPerformed
+
+    private void buttonExcluir7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonExcluir7MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonExcluir7MouseClicked
+
+    private void buttonCadastrar6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCadastrar6MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonCadastrar6MouseClicked
+
+    private void buttonCadastrar6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrar6ActionPerformed
+        // TODO add your handling code here:
+        int amount = Integer.valueOf(jTextPane22.getText());
+        String bank = (String) jComboBox3.getSelectedItem();
+        String[] codeNameBank = bank.split(" - ");
+        int bankName = Integer.valueOf(codeNameBank[0]);
+        int agency = Integer.valueOf(jTextPane20.getText());
+        int account = Integer.valueOf(jTextPane24.getText());
+
+        Account customerAccount = Controller.AccountController.retrieveCustomerAccount(1).get(0);
+
+        Controller.AccountController.moneyTransfer(customerAccount, amount, bankName, agency, account);
+    }//GEN-LAST:event_buttonCadastrar6ActionPerformed
+
+    private void buttonExcluir6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonExcluir6MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonExcluir6MouseClicked
 
     private void buttonCadastrar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCadastrar1MouseClicked
         // TODO add your handling code here:
@@ -941,7 +971,7 @@ public class vMainTest extends javax.swing.JPanel {
         int agency = Integer.valueOf(jTextPane3.getText());
         int account = Integer.valueOf(jTextPane4.getText());
         double limit = Double.valueOf(jTextPane7.getText());
-        
+
         Controller.AccountController.createAccount(1, ACCOUNT_COMMON, agency, account, limit, 0, 0);
     }//GEN-LAST:event_buttonCadastrar1ActionPerformed
 
@@ -959,7 +989,7 @@ public class vMainTest extends javax.swing.JPanel {
         int account = Integer.valueOf(jTextPane6.getText());
         double limit = Double.valueOf(jTextPane8.getText());
         double creditLimit = Double.valueOf(jTextPane9.getText());
-        
+
         Controller.AccountController.createAccount(1, ACCOUNT_SPECIAL, agency, account, limit, 0, creditLimit);
     }//GEN-LAST:event_buttonCadastrar2ActionPerformed
 
@@ -967,9 +997,9 @@ public class vMainTest extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonExcluir2MouseClicked
 
-    private void buttonExcluir3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonExcluir3MouseClicked
+    private void buttonCadastrar3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCadastrar3MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonExcluir3MouseClicked
+    }//GEN-LAST:event_buttonCadastrar3MouseClicked
 
     private void buttonCadastrar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrar3ActionPerformed
         // TODO add your handling code here:
@@ -977,69 +1007,17 @@ public class vMainTest extends javax.swing.JPanel {
         int account = Integer.valueOf(jTextPane12.getText());
         double limit = Double.valueOf(jTextPane1.getText());
         int birthdayAccount = (int) jComboBox1.getSelectedItem();
-        
+
         Controller.AccountController.createAccount(1, ACCOUNT_SAVINGS, agency, account, limit, birthdayAccount, 0);
     }//GEN-LAST:event_buttonCadastrar3ActionPerformed
 
-    private void buttonCadastrar3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCadastrar3MouseClicked
+    private void buttonExcluir3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonExcluir3MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_buttonCadastrar3MouseClicked
+    }//GEN-LAST:event_buttonExcluir3MouseClicked
 
-    private void buttonCadastrar4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCadastrar4MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonCadastrar4MouseClicked
+    private void buttonExcluirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonExcluirMouseClicked
 
-    private void buttonCadastrar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrar4ActionPerformed
-        // TODO add your handling code here:
-        double amount = Double.valueOf(jTextPane10.getText());
-        
-        Account customerAccount = Controller.AccountController.retrieveCustomerAccount(1).get(0);
-        
-        Controller.AccountController.depositMoney(customerAccount, amount);
-    }//GEN-LAST:event_buttonCadastrar4ActionPerformed
-
-    private void buttonExcluir4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonExcluir4MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonExcluir4MouseClicked
-
-    private void buttonCadastrar6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCadastrar6MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonCadastrar6MouseClicked
-
-    private void buttonCadastrar6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrar6ActionPerformed
-        // TODO add your handling code here:
-        int amount = Integer.valueOf(jTextPane22.getText());
-        String bank = (String) jComboBox3.getSelectedItem();
-        String[] codeNameBank = bank.split(" - ");
-        int bankName = Integer.valueOf(codeNameBank[0]);
-        int agency = Integer.valueOf(jTextPane20.getText());
-        int account = Integer.valueOf(jTextPane24.getText());
-        
-        Account customerAccount = Controller.AccountController.retrieveCustomerAccount(1).get(0);
-        
-        Controller.AccountController.moneyTransfer(customerAccount, amount, bankName, agency, account);
-    }//GEN-LAST:event_buttonCadastrar6ActionPerformed
-
-    private void buttonExcluir6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonExcluir6MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonExcluir6MouseClicked
-
-    private void buttonCadastrar7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCadastrar7MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonCadastrar7MouseClicked
-
-    private void buttonCadastrar7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrar7ActionPerformed
-        // TODO add your handling code here:
-        double amount = Double.valueOf(jTextPane23.getText());
-        
-        Account customerAccount = Controller.AccountController.retrieveCustomerAccount(1).get(0);
-        
-        Controller.AccountController.withdrawMoney(customerAccount, amount);
-    }//GEN-LAST:event_buttonCadastrar7ActionPerformed
-
-    private void buttonExcluir7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonExcluir7MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonExcluir7MouseClicked
+    }//GEN-LAST:event_buttonExcluirMouseClicked
 
     private void buttonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExcluirActionPerformed
         // TODO add your handling code here:
@@ -1047,7 +1025,53 @@ public class vMainTest extends javax.swing.JPanel {
         Controller.CustomerController.inactivateCustomerByCPF(customerCPF);
     }//GEN-LAST:event_buttonExcluirActionPerformed
 
-        
+    private void buttonCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCadastrarMouseClicked
+
+    }//GEN-LAST:event_buttonCadastrarMouseClicked
+
+    private void buttonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrarActionPerformed
+        // TODO add your handling code here:
+        String fullName = jTextPane1.getText();
+        String cpf = jTextPane2.getText();
+        Calendar birthDate = jDateChooser1.getCalendar();
+
+        Controller.CustomerController.newCustomer(fullName, cpf, birthDate, true);
+    }//GEN-LAST:event_buttonCadastrarActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new NewJFrame().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonCadastrar;
