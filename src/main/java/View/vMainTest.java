@@ -6,6 +6,7 @@ package View;
 
 import java.sql.Date;
 import Controller.CustomerController;
+import Model.Account;
 import Model.AccountDAO;
 import static Model.AccountDAO.ACCOUNT_COMMON;
 import static Model.AccountDAO.ACCOUNT_SAVINGS;
@@ -986,6 +987,10 @@ public class vMainTest extends javax.swing.JPanel {
     private void buttonCadastrar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrar4ActionPerformed
         // TODO add your handling code here:
         double amount = Double.valueOf(jTextPane10.getText());
+        
+        Account customerAccount = Controller.AccountController.retrieveCustomerAccount(1).get(0);
+        
+        Controller.AccountController.depositMoney(customerAccount, amount);
     }//GEN-LAST:event_buttonCadastrar4ActionPerformed
 
     private void buttonExcluir4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonExcluir4MouseClicked
@@ -1000,8 +1005,14 @@ public class vMainTest extends javax.swing.JPanel {
         // TODO add your handling code here:
         int amount = Integer.valueOf(jTextPane22.getText());
         String bank = (String) jComboBox3.getSelectedItem();
+        String[] codeNameBank = bank.split(" - ");
+        int bankName = Integer.valueOf(codeNameBank[0]);
         int agency = Integer.valueOf(jTextPane20.getText());
         int account = Integer.valueOf(jTextPane24.getText());
+        
+        Account customerAccount = Controller.AccountController.retrieveCustomerAccount(1).get(0);
+        
+        Controller.AccountController.moneyTransfer(customerAccount, amount, bankName, agency, account);
     }//GEN-LAST:event_buttonCadastrar6ActionPerformed
 
     private void buttonExcluir6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonExcluir6MouseClicked
@@ -1015,6 +1026,10 @@ public class vMainTest extends javax.swing.JPanel {
     private void buttonCadastrar7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrar7ActionPerformed
         // TODO add your handling code here:
         double amount = Double.valueOf(jTextPane23.getText());
+        
+        Account customerAccount = Controller.AccountController.retrieveCustomerAccount(1).get(0);
+        
+        Controller.AccountController.withdrawMoney(customerAccount, amount);
     }//GEN-LAST:event_buttonCadastrar7ActionPerformed
 
     private void buttonExcluir7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonExcluir7MouseClicked
