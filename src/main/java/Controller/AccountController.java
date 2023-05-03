@@ -11,7 +11,7 @@ import java.util.List;
  */
 
 public class AccountController {
-    public static void createAccount (int customerId, int type, int agency, int account, double limit) {
+    public static void createAccount (int customerId, int type, int agency, int account, double limit, int birthdayAccount, double creditLimit) {
         Calendar openDate = Calendar.getInstance();
         openDate.getTime();
         
@@ -24,8 +24,8 @@ public class AccountController {
                 0, 
                 limit, 
                 type, 
-                0, 
-                0
+                birthdayAccount, 
+                creditLimit
         );
     }
     

@@ -6,6 +6,10 @@ package View;
 
 import java.sql.Date;
 import Controller.CustomerController;
+import Model.AccountDAO;
+import static Model.AccountDAO.ACCOUNT_COMMON;
+import static Model.AccountDAO.ACCOUNT_SAVINGS;
+import static Model.AccountDAO.ACCOUNT_SPECIAL;
 import java.util.Calendar;
 
 /**
@@ -703,9 +707,6 @@ public class vMainTest extends javax.swing.JPanel {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jLabel17)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jTabbedPane2, javax.swing.GroupLayout.Alignment.LEADING)
@@ -736,6 +737,10 @@ public class vMainTest extends javax.swing.JPanel {
                                     .addComponent(jLabel5))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel17)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -930,6 +935,8 @@ public class vMainTest extends javax.swing.JPanel {
         int agency = Integer.valueOf(jTextPane3.getText());
         int account = Integer.valueOf(jTextPane4.getText());
         double limit = Double.valueOf(jTextPane7.getText());
+        
+        Controller.AccountController.createAccount(1, ACCOUNT_COMMON, agency, account, limit, 0, 0);
     }//GEN-LAST:event_buttonCadastrar1ActionPerformed
 
     private void buttonExcluir1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonExcluir1MouseClicked
@@ -946,6 +953,8 @@ public class vMainTest extends javax.swing.JPanel {
         int account = Integer.valueOf(jTextPane6.getText());
         double limit = Double.valueOf(jTextPane8.getText());
         double creditLimit = Double.valueOf(jTextPane9.getText());
+        
+        Controller.AccountController.createAccount(1, ACCOUNT_SPECIAL, agency, account, limit, 0, creditLimit);
     }//GEN-LAST:event_buttonCadastrar2ActionPerformed
 
     private void buttonExcluir2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonExcluir2MouseClicked
@@ -961,7 +970,9 @@ public class vMainTest extends javax.swing.JPanel {
         int agency = Integer.valueOf(jTextPane13.getText());
         int account = Integer.valueOf(jTextPane12.getText());
         double limit = Double.valueOf(jTextPane1.getText());
-        int birthday = (int) jComboBox1.getSelectedItem();
+        int birthdayAccount = (int) jComboBox1.getSelectedItem();
+        
+        Controller.AccountController.createAccount(1, ACCOUNT_SAVINGS, agency, account, limit, birthdayAccount, 0);
     }//GEN-LAST:event_buttonCadastrar3ActionPerformed
 
     private void buttonCadastrar3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCadastrar3MouseClicked
