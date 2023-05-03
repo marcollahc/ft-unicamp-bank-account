@@ -246,8 +246,9 @@ public class AccountDAO extends DAO {
         Integer receiverBank,
         Integer receiverAgency,
         Integer receiverAccountNumber
-    )   {
+    ) {
         PreparedStatement stmt;
+        
         try {
             double accountNewBalance = account.getBalance() + amount;
 

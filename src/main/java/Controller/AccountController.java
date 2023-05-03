@@ -73,19 +73,19 @@ public class AccountController {
     }
 
     public static void withdrawMoney(Account customerAccount, double amount) {
-            boolean accountOperationIsValid = AccountController.accountOperationIsValid(customerAccount, amount);
-            if (accountOperationIsValid) {
-                AccountDAO.getInstance().updateBalance(
-                    customerAccount,
-                    -amount,
-                    "Saque",
-                    null,
-                    null,
-                    null
-                );
-            } else {
-                System.err.println("Saldo insuficiente!");
-            }
+        boolean accountOperationIsValid = AccountController.accountOperationIsValid(customerAccount, amount);
+        if (accountOperationIsValid) {
+            AccountDAO.getInstance().updateBalance(
+                customerAccount,
+                -amount,
+                "Saque",
+                null,
+                null,
+                null
+            );
+        } else {
+            System.err.println("Saldo insuficiente!");
+        }
     }
 
     public static void moneyTransfer(

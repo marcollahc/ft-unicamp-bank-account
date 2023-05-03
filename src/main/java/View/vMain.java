@@ -972,10 +972,11 @@ public class vMain extends javax.swing.JFrame {
         // TODO add your handling code here:
         int agency = Integer.valueOf(jTextPane13.getText());
         int account = Integer.valueOf(jTextPane12.getText());
-        double limit = Double.valueOf(jTextPane1.getText());
-        int birthdayAccount = (int) jComboBox1.getSelectedItem();
+        double limit = Double.valueOf(jTextPane11.getText());
+        String birthdayAccount = (String) jComboBox1.getSelectedItem();
+        int birthday = Integer.valueOf(birthdayAccount);
         
-        Controller.AccountController.createAccount(1, ACCOUNT_SAVINGS, agency, account, limit, birthdayAccount, 0);
+        Controller.AccountController.createAccount(1, ACCOUNT_SAVINGS, agency, account, limit, birthday, 0);
     }//GEN-LAST:event_buttonCadastrar3ActionPerformed
 
     private void buttonCadastrar3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCadastrar3MouseClicked
