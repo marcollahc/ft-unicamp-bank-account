@@ -123,7 +123,8 @@ public class DAO {
                                                         accountType INTEGER,
                                                         limitTransaction DOUBLE,
                                                         birthdayAccount INTEGER,
-                                                        creditLimit DOUBLE);
+                                                        creditLimit DOUBLE,
+                                                        active BOOLEAN);
                                                         """);
             executeUpdate(stmt);
             // Table savingsAccount:

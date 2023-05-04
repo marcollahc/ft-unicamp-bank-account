@@ -5,6 +5,7 @@
 package Model;
 
 import Model.Customer;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -44,7 +45,7 @@ public class CustomerTableModel extends GenericTableModel {
             case 2:
                 return customer.getCpf();
             case 3:
-                return customer.getBirthdate();
+                return customer.getBirthdate().getTime();
             default:
                 throw new IndexOutOfBoundsException("column_index out of bounds");
         }

@@ -43,7 +43,8 @@ public class AccountController {
                 limit, 
                 type, 
                 birthdayAccount, 
-                creditLimit
+                creditLimit,
+                true
         );
     }
     
@@ -67,8 +68,8 @@ public class AccountController {
         AccountDAO.getInstance().update(accountObject);
     }
     
-    public static void deleteAccount (Account accountObject) {
-        AccountDAO.getInstance().delete(accountObject);
+    public static void inactiveAccount (Account accountObject) {
+        AccountDAO.getInstance().inactiveAccount(accountObject);
     }
     
     public static void depositMoney(Account customerAccount, double amount) {
@@ -88,7 +89,7 @@ public class AccountController {
         if (accountOperationIsValid) {
             AccountDAO.getInstance().updateBalance(
                 customerAccount,
-                -amount,
+                amount,
                 "Saque",
                 null,
                 null,
@@ -147,13 +148,17 @@ public class AccountController {
     private static boolean accountOperationIsValid(Account customerAccount, double amount) {
         boolean isCommonAccount = (customerAccount.getAccountType() == AccountDAO.ACCOUNT_COMMON);
         boolean isSpecialAccount = (customerAccount.getAccountType() == AccountDAO.ACCOUNT_SPECIAL);
+        boolean isSavingsAccount = (customerAccount.getAccountType() == AccountDAO.ACCOUNT_SAVINGS);
+
         boolean operationGreaterThanBalance = (amount > customerAccount.getBalance());
         boolean operationGreaterThanBalanceAndLimit = (amount > customerAccount.getBalance() + customerAccount.getCreditLimit());
+        boolean operationLimitTransfer = (amount > customerAccount.getLimitTransaction());
 
-        boolean commonAccountOperationIsValid = (isCommonAccount && !operationGreaterThanBalance);
-        boolean specialAccountOperationIsValid = (isSpecialAccount && !operationGreaterThanBalanceAndLimit);
+        boolean commonAccountOperationIsValid = (isCommonAccount && !operationGreaterThanBalance && !operationLimitTransfer);
+        boolean specialAccountOperationIsValid = (isSpecialAccount && !operationGreaterThanBalanceAndLimit && !operationLimitTransfer);
+        boolean savingsAccountOperationIsValid = (isSavingsAccount && !operationGreaterThanBalance && !operationLimitTransfer);
 
-        return commonAccountOperationIsValid || specialAccountOperationIsValid;
+        return commonAccountOperationIsValid || specialAccountOperationIsValid || savingsAccountOperationIsValid;
     }
 
     private static boolean transferValidations(

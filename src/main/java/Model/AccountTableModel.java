@@ -54,7 +54,17 @@ public class AccountTableModel extends GenericTableModel {
             case 3:
                 return account.getBalance();
             case 4:
-                return account.getAccountType();
+                String typeDescription = "Normal";
+                
+                if (account.getAccountType() == AccountDAO.ACCOUNT_SAVINGS) {
+                    typeDescription = "Poupança";
+                }
+                
+                if (account.getAccountType() == AccountDAO.ACCOUNT_SPECIAL) {
+                    typeDescription = "Especial";
+                }
+                
+                return typeDescription;
             case 5:
                 return account.getLimitTransaction();
             case 6:

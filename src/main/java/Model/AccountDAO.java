@@ -35,16 +35,17 @@ public class AccountDAO extends DAO {
 
     // CRUD    
     public Account create(
-            int customerId,
-            int bank,
-            int agency,
-            int account,
-            Calendar openDate,
-            double balance,
-            double limitTransaction,
-            int accountType,
-            int birthdayAccount,
-            double creditLimit
+        int customerId,
+        int bank,
+        int agency,
+        int account,
+        Calendar openDate,
+        double balance,
+        double limitTransaction,
+        int accountType,
+        int birthdayAccount,
+        double creditLimit,
+        boolean active
     ) {
         PreparedStatement stmt;
         
@@ -60,9 +61,10 @@ public class AccountDAO extends DAO {
                     accountType,
                     limitTransaction,
                     birthdayAccount,
-                    creditLimit
+                    creditLimit,
+                    active
                 ) VALUES (
-                    ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
+                    ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
                 )
             """);
             stmt.setInt(1, customerId);
@@ -75,6 +77,7 @@ public class AccountDAO extends DAO {
             stmt.setDouble(8, limitTransaction);
             stmt.setInt(9, birthdayAccount);
             stmt.setDouble(10, creditLimit);
+            stmt.setBoolean(11, active);
             executeUpdate(stmt);
         } catch (SQLException exception) {
             Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, exception);
@@ -101,7 +104,8 @@ public class AccountDAO extends DAO {
                     rs.getInt("accountType"),
                     rs.getDouble("limitTransaction"),
                     rs.getInt("birthdayAccount"),
-                    rs.getDouble("creditLimit")
+                    rs.getDouble("creditLimit"),
+                    rs.getBoolean("active")
             );
         } catch (SQLException exception) {
             System.err.println("Exception: " + exception.getMessage());
@@ -128,27 +132,27 @@ public class AccountDAO extends DAO {
     
     // RetrieveAll
     public List retrieveAll() {
-        return this.retrieve("SELECT * FROM account");
+        return this.retrieve("SELECT * FROM account WHERE active = 1");
     }
     
     // RetrieveLast
     public List retrieveLast(){
-        return this.retrieve("SELECT * FROM account WHERE id = " + lastId("account", "id"));
+        return this.retrieve("SELECT * FROM account WHERE id = " + lastId("account", "id") + " AND active = 1");
     }
 
     // RetrieveById
     public Account retrieveById(int id) {
-        List<Account> account = this.retrieve("SELECT * FROM account WHERE id = " + id);
+        List<Account> account = this.retrieve("SELECT * FROM account WHERE id = " + id + " AND active = 1");
         return (account.isEmpty()?null:account.get(0));
     }
 
     // RetrieveBySimilarName
     public List retrieveByCustomerId(int customerId) {
-        return this.retrieve("SELECT * FROM account WHERE customerId = " + customerId);
+        return this.retrieve("SELECT * FROM account WHERE customerId = " + customerId + " AND active = 1");
     }    
 
     public Account retrieveByAccountNumber(int accountNumber) {
-        List<Account> commonAccount = this.retrieve("SELECT * FROM account WHERE account = " + accountNumber);
+        List<Account> commonAccount = this.retrieve("SELECT * FROM account WHERE account = " + accountNumber + " AND active = 1");
         return (commonAccount.isEmpty()?null:commonAccount.get(0));
     }
 
@@ -189,12 +193,12 @@ public class AccountDAO extends DAO {
         }
     }
     
-    // Delete   
-    public void delete(Account account) {
+    // Inactive   
+    public void inactiveAccount(Account account) {
         PreparedStatement stmt;
         
         try {
-            stmt = DAO.getConnection().prepareStatement("DELETE FROM account WHERE id = ?");
+            stmt = DAO.getConnection().prepareStatement("UPDATE account SET active = 0 WHERE id = ?");
             stmt.setInt(1, account.getId());
             executeUpdate(stmt);
         } catch (SQLException exception) {

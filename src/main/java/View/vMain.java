@@ -50,13 +50,11 @@ public class vMain extends javax.swing.JFrame {
         jTextPane10 = new javax.swing.JTextPane();
         jLabel18 = new javax.swing.JLabel();
         buttonCadastrar4 = new javax.swing.JButton();
-        buttonExcluir4 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jScrollPane24 = new javax.swing.JScrollPane();
         jTextPane23 = new javax.swing.JTextPane();
         jLabel29 = new javax.swing.JLabel();
         buttonCadastrar7 = new javax.swing.JButton();
-        buttonExcluir7 = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
         jScrollPane21 = new javax.swing.JScrollPane();
@@ -67,7 +65,6 @@ public class vMain extends javax.swing.JFrame {
         jTextPane22 = new javax.swing.JTextPane();
         jLabel28 = new javax.swing.JLabel();
         buttonCadastrar6 = new javax.swing.JButton();
-        buttonExcluir6 = new javax.swing.JButton();
         jScrollPane25 = new javax.swing.JScrollPane();
         jTextPane24 = new javax.swing.JTextPane();
         jComboBox3 = new javax.swing.JComboBox<>();
@@ -159,16 +156,6 @@ public class vMain extends javax.swing.JFrame {
             }
         });
 
-        buttonExcluir4.setBackground(new java.awt.Color(0, 0, 0));
-        buttonExcluir4.setForeground(new java.awt.Color(255, 255, 255));
-        buttonExcluir4.setText("Cancelar");
-        buttonExcluir4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        buttonExcluir4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                buttonExcluir4MouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -178,14 +165,12 @@ public class vMain extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jLabel18)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+                        .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(buttonCadastrar4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonExcluir4)))
-                .addContainerGap())
+                        .addGap(88, 88, 88))))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -195,10 +180,8 @@ public class vMain extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(buttonCadastrar4)
-                        .addComponent(buttonExcluir4)))
-                .addContainerGap(97, Short.MAX_VALUE))
+                    .addComponent(buttonCadastrar4))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Depositar", jPanel6);
@@ -222,16 +205,6 @@ public class vMain extends javax.swing.JFrame {
             }
         });
 
-        buttonExcluir7.setBackground(new java.awt.Color(0, 0, 0));
-        buttonExcluir7.setForeground(new java.awt.Color(255, 255, 255));
-        buttonExcluir7.setText("Cancelar");
-        buttonExcluir7.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        buttonExcluir7.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                buttonExcluir7MouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -241,14 +214,12 @@ public class vMain extends javax.swing.JFrame {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(jLabel29)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(jScrollPane24, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+                        .addComponent(jScrollPane24, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(buttonCadastrar7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonExcluir7)))
-                .addContainerGap())
+                        .addGap(88, 88, 88))))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -258,10 +229,8 @@ public class vMain extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(buttonCadastrar7)
-                        .addComponent(buttonExcluir7)))
-                .addContainerGap(97, Short.MAX_VALUE))
+                    .addComponent(buttonCadastrar7))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Sacar", jPanel7);
@@ -293,16 +262,6 @@ public class vMain extends javax.swing.JFrame {
             }
         });
 
-        buttonExcluir6.setBackground(new java.awt.Color(0, 0, 0));
-        buttonExcluir6.setForeground(new java.awt.Color(255, 255, 255));
-        buttonExcluir6.setText("Cancelar");
-        buttonExcluir6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        buttonExcluir6.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                buttonExcluir6MouseClicked(evt);
-            }
-        });
-
         jScrollPane25.setViewportView(jTextPane24);
 
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "286 - FT Bank", "000 - Banco Bankpar S.A.", "001 - Banco do Brasil S.A.", "003 - Banco da Amazônia S.A.", "004 - Banco do Nordeste do Brasil S.A.", "021 - BANESTES S.A. Banco do Estado do Espírito Santo", "024 - Banco de Pernambuco S.A. - BANDEPE", "025 - Banco Alfa S.A.", "029 - Banco Banerj S.A.", "031 - Banco Beg S.A.", "033 - Banco Santander (Brasil) S.A.", "036 - Banco Bradesco BBI S.A.", "037 - Banco do Estado do Pará S.A.", "038 - Banco Banestado S.A.", "040 - Banco Cargill S.A.", "041 - Banco do Estado do Rio Grande do Sul S.A.", "044 - Banco BVA S.A.", "045 - Banco Opportunity S.A.", "047 - Banco do Estado de Sergipe S.A.", "062 - Hipercard Banco Múltiplo S.A.", "063 - Banco Ibi S.A. Banco Múltiplo", "065 - Banco Lemon S.A.", "069 - BPN Brasil Banco Múltiplo S.A.", "070 - BRB - Banco de Brasília S.A.", "072 - Banco Rural Mais S.A.", "073 - BB Banco Popular do Brasil S.A.", "074 - Banco J. Safra S.A.", "078 - BES Investimento do Brasil S.A.-Banco de Investimento", "081-7 - Concórdia Banco S.A.", "082-5 - Banco Topázio S.A.", "083-3 - Banco da China Brasil S.A.", "096 - Banco BM&F de Serviços de Liquidação e Custódia S.A", "104 - Caixa Econômica Federal", "107 - Banco BBM S.A.", "151 - Banco Nossa Caixa S.A.", "184 - Banco Itaú BBA S.A.", "204 - Banco Bradesco Cartões S.A.", "208 - Banco UBS Pactual S.A.", "214 - Banco Dibens S.A.", "215 - Banco Comercial e de Investimento Sudameris S.A.", "217 - Banco John Deere S.A.", "222 - Banco Calyon Brasil S.A.", "224 - Banco Fibra S.A.", "225 - Banco Brascan S.A.", "229 - Banco Cruzeiro do Sul S.A.", "230 - Unicard Banco Múltiplo S.A.", "233 - Banco GE Capital S.A.", "237 - Banco Bradesco S.A.", "246 - Banco ABC Brasil S.A.", "248 - Banco Boavista Interatlântico S.A.", "249 - Banco Investcred Unibanco S.A.", "250 - Banco Schahin S.A.", "263 - Banco Cacique S.A.", "265 - Banco Fator S.A.", "318 - Banco BMG S.A.", "320 - Banco Industrial e Comercial S.A.", "341 - Banco Itaú S.A.", "356 - Banco Real S.A. (antigo)", "366 - Banco Société Générale Brasil S.A.", "370 - Banco WestLB do Brasil S.A.", "376 - Banco J. P. Morgan S.A.", "389 - Banco Mercantil do Brasil S.A.", "394 - Banco Finasa BMC S.A.", "399 - HSBC Bank Brasil S.A. - Banco Múltiplo", "409 - UNIBANCO - União de Bancos Brasileiros S.A.", "422 - Banco Safra S.A.", "453 - Banco Rural S.A.", "456 - Banco de Tokyo-Mitsubishi UFJ Brasil S.A.", "464 - Banco Sumitomo Mitsui Brasileiro S.A.", "473 - Banco Caixa Geral - Brasil S.A.", "477 - Citibank N.A.", "479 - Banco ItaúBank S.A", "487 - Deutsche Bank S.A. - Banco Alemão", "488 - JPMorgan Chase Bank", "492 - ING Bank N.V.", "505 - Banco Credit Suisse (Brasil) S.A.", "600 - Banco Luso Brasileiro S.A.", "604 - Banco Industrial do Brasil S.A.", "610 - Banco VR S.A.", "611 - Banco Paulista S.A.", "612 - Banco Guanabara S.A.", "623 - Banco Panamericano S.A.", "626 - Banco Ficsa S.A.", "630 - Banco Intercap S.A.", "633 - Banco Rendimento S.A.", "634 - Banco Triângulo S.A.", "637 - Banco Sofisa S.A.", "638 - Banco Prosper S.A.", "641 - Banco Alvorada S.A.", "643 - Banco Pine S.A.", "652 - Itaú Unibanco Holding S.A.", "653 - Banco Indusval S.A.", "655 - Banco Votorantim S.A.", "707 - Banco Daycoval S.A.", "719 - Banif-Banco Internacional do Funchal (Brasil)S.A.", "734 - Banco Gerdau S.A.", "740 - Banco Barclays S.A.", "745 - Banco Citibank S.A.", "746 - Banco Modal S.A.", "747 - Banco Rabobank International Brasil S.A.", "748 - Banco Cooperativo Sicredi S.A.", "749 - Banco Simples S.A.", "751 - Dresdner Bank Brasil S.A. - Banco Múltiplo", "752 - Banco BNP Paribas Brasil S.A.", "755 - Banco Merrill Lynch de Investimentos S.A.", "756 - Banco Cooperativo do Brasil S.A. - BANCOOB", "M03 - Banco Fiat S.A.", "M06 - Banco de Lage Landen Brasil S.A.", "M07 - Banco GMAC S.A.", "M08 - Banco Citicard S.A.", "M09 - Banco Itaucred Financiamentos S.A.", "M11 - Banco IBM S.A.", "M14 - Banco Volkswagen S.A.", "M16 - Banco Rodobens S.A.", "M18 - Banco Ford S.A.", "M19 - Banco CNH Capital S.A.", "M20 - Banco Toyota do Brasil S.A.", "M22 - Banco Honda S.A.\"" }));
@@ -328,13 +287,11 @@ public class vMain extends javax.swing.JFrame {
                                     .addComponent(jLabel25)
                                     .addComponent(jLabel27))
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jScrollPane25)
+                            .addComponent(jScrollPane25, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
                             .addComponent(jComboBox3, 0, 165, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                        .addGap(0, 151, Short.MAX_VALUE)
-                        .addComponent(buttonCadastrar6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonExcluir6)))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(buttonCadastrar6)))
                 .addContainerGap())
         );
         jPanel8Layout.setVerticalGroup(
@@ -361,10 +318,8 @@ public class vMain extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonCadastrar6)
-                    .addComponent(buttonExcluir6))
-                .addContainerGap(7, Short.MAX_VALUE))
+                .addComponent(buttonCadastrar6)
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Transferir", jPanel8);
@@ -400,11 +355,16 @@ public class vMain extends javax.swing.JFrame {
 
         buttonExcluir1.setBackground(new java.awt.Color(0, 0, 0));
         buttonExcluir1.setForeground(new java.awt.Color(255, 255, 255));
-        buttonExcluir1.setText("Excluir");
+        buttonExcluir1.setText("Inativar");
         buttonExcluir1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         buttonExcluir1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 buttonExcluir1MouseClicked(evt);
+            }
+        });
+        buttonExcluir1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonExcluir1ActionPerformed(evt);
             }
         });
 
@@ -495,11 +455,16 @@ public class vMain extends javax.swing.JFrame {
 
         buttonExcluir2.setBackground(new java.awt.Color(0, 0, 0));
         buttonExcluir2.setForeground(new java.awt.Color(255, 255, 255));
-        buttonExcluir2.setText("Excluir");
+        buttonExcluir2.setText("Inativar");
         buttonExcluir2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         buttonExcluir2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 buttonExcluir2MouseClicked(evt);
+            }
+        });
+        buttonExcluir2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonExcluir2ActionPerformed(evt);
             }
         });
 
@@ -597,11 +562,16 @@ public class vMain extends javax.swing.JFrame {
 
         buttonExcluir3.setBackground(new java.awt.Color(0, 0, 0));
         buttonExcluir3.setForeground(new java.awt.Color(255, 255, 255));
-        buttonExcluir3.setText("Excluir");
+        buttonExcluir3.setText("Inativar");
         buttonExcluir3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         buttonExcluir3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 buttonExcluir3MouseClicked(evt);
+            }
+        });
+        buttonExcluir3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonExcluir3ActionPerformed(evt);
             }
         });
 
@@ -780,9 +750,9 @@ public class vMain extends javax.swing.JFrame {
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel17)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(23, 23, 23)
                 .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
 
         jLabel19.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
@@ -890,6 +860,10 @@ public class vMain extends javax.swing.JFrame {
         Controller.CustomerController.newCustomer(fullName, cpf, birthDate, true);
         
         this.loadCustomers();
+        
+        jTextPane1.setText("");
+        jTextPane2.setText("");
+        jDateChooser1.getCalendar();
     }//GEN-LAST:event_buttonCadastrarActionPerformed
 
     private void buttonCadastrar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCadastrar1MouseClicked
@@ -905,11 +879,11 @@ public class vMain extends javax.swing.JFrame {
         Controller.AccountController.createAccount(CustomerController.getTempCustomer().getId(), ACCOUNT_COMMON, agency, account, limit, 0, 0);
         
         this.loadAccounts();
+        
+        jTextPane3.setText("");
+        jTextPane4.setText("");
+        jTextPane7.setText("");
     }//GEN-LAST:event_buttonCadastrar1ActionPerformed
-
-    private void buttonExcluir1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonExcluir1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonExcluir1MouseClicked
 
     private void buttonCadastrar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCadastrar2MouseClicked
         // TODO add your handling code here:
@@ -925,6 +899,11 @@ public class vMain extends javax.swing.JFrame {
         Controller.AccountController.createAccount(CustomerController.getTempCustomer().getId(), ACCOUNT_SPECIAL, agency, account, limit, 0, creditLimit);
         
         this.loadAccounts();
+        
+        jTextPane5.setText("");
+        jTextPane6.setText("");
+        jTextPane8.setText("");
+        jTextPane9.setText("");
     }//GEN-LAST:event_buttonCadastrar2ActionPerformed
 
     private void buttonExcluir2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonExcluir2MouseClicked
@@ -946,6 +925,10 @@ public class vMain extends javax.swing.JFrame {
         Controller.AccountController.createAccount(CustomerController.getTempCustomer().getId(), ACCOUNT_SAVINGS, agency, account, limit, birthday, 0);
         
         this.loadAccounts();
+        
+        jTextPane13.setText("");
+        jTextPane12.setText("");
+        jTextPane11.setText("");
     }//GEN-LAST:event_buttonCadastrar3ActionPerformed
 
     private void buttonCadastrar3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCadastrar3MouseClicked
@@ -965,11 +948,9 @@ public class vMain extends javax.swing.JFrame {
         Controller.AccountController.depositMoney(customerAccount, amount);
         
         this.loadMovements();
+        
+        jTextPane10.setText("");
     }//GEN-LAST:event_buttonCadastrar4ActionPerformed
-
-    private void buttonExcluir4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonExcluir4MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonExcluir4MouseClicked
 
     private void buttonCadastrar6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCadastrar6MouseClicked
         // TODO add your handling code here:
@@ -989,11 +970,11 @@ public class vMain extends javax.swing.JFrame {
         Controller.AccountController.moneyTransfer(customerAccount, amount, bankName, agency, account);
         
         this.loadMovements();
+        
+        jTextPane22.setText("");
+        jTextPane20.setText("");
+        jTextPane24.setText("");
     }//GEN-LAST:event_buttonCadastrar6ActionPerformed
-
-    private void buttonExcluir6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonExcluir6MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonExcluir6MouseClicked
 
     private void buttonCadastrar7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCadastrar7MouseClicked
         // TODO add your handling code here:
@@ -1008,11 +989,9 @@ public class vMain extends javax.swing.JFrame {
         Controller.AccountController.withdrawMoney(customerAccount, amount);
         
         this.loadMovements();
+        
+        jTextPane23.setText("");
     }//GEN-LAST:event_buttonCadastrar7ActionPerformed
-
-    private void buttonExcluir7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonExcluir7MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonExcluir7MouseClicked
 
     private void buttonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExcluirActionPerformed
         // TODO add your handling code here:
@@ -1039,6 +1018,25 @@ public class vMain extends javax.swing.JFrame {
         
         this.loadMovements();
     }//GEN-LAST:event_jTable8MousePressed
+
+    private void buttonExcluir1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonExcluir1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonExcluir1MouseClicked
+
+    private void buttonExcluir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExcluir1ActionPerformed
+        // TODO add your handling code here:
+        AccountController.inactiveAccount(AccountController.getTempAccount());
+    }//GEN-LAST:event_buttonExcluir1ActionPerformed
+
+    private void buttonExcluir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExcluir2ActionPerformed
+        // TODO add your handling code here:
+        AccountController.inactiveAccount(AccountController.getTempAccount());
+    }//GEN-LAST:event_buttonExcluir2ActionPerformed
+
+    private void buttonExcluir3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExcluir3ActionPerformed
+        // TODO add your handling code here:
+        AccountController.inactiveAccount(AccountController.getTempAccount());
+    }//GEN-LAST:event_buttonExcluir3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1079,20 +1077,14 @@ public class vMain extends javax.swing.JFrame {
     
     public void loadCustomers() {
         jTable7.setModel(new CustomerTableModel(Controller.CustomerController.retrieveAllCustomers()));
-        
-        System.out.println("acionou: loadCustomers");
     }
     
     public void loadAccounts() {
         jTable8.setModel(new AccountTableModel(Controller.AccountController.retrieveCustomerAccount(CustomerController.getTempCustomer().getId())));
-        
-        System.out.println("acionou: loadAccounts");
     }
     
     public void loadMovements() {
         jTable9.setModel(new MovementTableModel(Controller.MovementController.listMovementsAccount(AccountController.getTempAccount().getId())));
-        
-        System.out.println("acionou: loadMovements");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1107,9 +1099,6 @@ public class vMain extends javax.swing.JFrame {
     private javax.swing.JButton buttonExcluir1;
     private javax.swing.JButton buttonExcluir2;
     private javax.swing.JButton buttonExcluir3;
-    private javax.swing.JButton buttonExcluir4;
-    private javax.swing.JButton buttonExcluir6;
-    private javax.swing.JButton buttonExcluir7;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox3;
     private com.toedter.calendar.JDateChooser jDateChooser1;

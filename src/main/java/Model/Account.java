@@ -20,6 +20,7 @@ public class Account {
     private double limitTransaction;
     private int birthdayAccount;
     private double creditLimit;
+    private boolean active;
             
     //Construtor
     public Account(
@@ -33,7 +34,8 @@ public class Account {
         int accountType,
         double limitTransaction,
         int birthdayAccount,
-        double creditLimit
+        double creditLimit,
+        boolean active
     ) {
         this.id = id;
         this.customerId = customerId;
@@ -46,6 +48,7 @@ public class Account {
         this.limitTransaction = limitTransaction;
         this.birthdayAccount = birthdayAccount;
         this.creditLimit = creditLimit;
+        this.active = active;
     }
     
     //Getters and Setters
@@ -131,5 +134,13 @@ public class Account {
 
     public void setCreditLimit(double creditLimit) {
         this.creditLimit = creditLimit;
+    }
+    
+    public boolean getActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 }
