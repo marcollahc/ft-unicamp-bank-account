@@ -254,7 +254,13 @@ public class AccountDAO extends DAO {
         PreparedStatement stmt;
         
         try {
-            double accountNewBalance = account.getBalance() + amount;
+            double accountNewBalance = 0;
+            
+            if (operationDescription.equals(MovementDAO.MOVEMENT_DEPOSIT)) {
+                accountNewBalance = account.getBalance() + amount;
+            } else {
+                accountNewBalance = account.getBalance() - amount;
+            }
 
             stmt = DAO.getConnection().prepareStatement(
                 "UPDATE account SET balance = ? WHERE id = ?"
@@ -264,10 +270,11 @@ public class AccountDAO extends DAO {
             executeUpdate(stmt);
 
             Calendar operationDate = Calendar.getInstance();
+            
             if (receiverBank != null && receiverAgency != null && receiverAccountNumber != null) {
                 this.createTransferMovement(
                     account.getId(),
-                    accountNewBalance,
+                    amount,
                     operationDate,
                     operationDescription,
                     receiverBank,
@@ -277,7 +284,7 @@ public class AccountDAO extends DAO {
             } else {
                 this.createRegularMovement(
                     account.getId(),
-                    accountNewBalance,
+                    amount,
                     operationDate,
                     operationDescription
                 );

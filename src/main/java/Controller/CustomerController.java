@@ -38,7 +38,7 @@ public class CustomerController {
         CustomerDAO.getInstance().update(customer);
     }
     
-    public static void inactivateCustomerByCPF(String customerCPF) {
-        CustomerDAO.getInstance().inactivateByCPF(customerCPF);
+    public static void inactivateCustomerById(int id) {
+        CustomerDAO.getInstance().inactivateById(id);
     }
 }

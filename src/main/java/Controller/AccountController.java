@@ -1,6 +1,8 @@
 package Controller;
 import Model.Account;
 import Model.AccountDAO;
+import Model.MovementDAO;
+
 import java.util.Calendar;
 import java.util.List;
 
@@ -52,6 +54,10 @@ public class AccountController {
         return AccountDAO.getInstance().retrieveByCustomerId(customerId);
     }
     
+    public static Account retrieveAccountById(int accountId) {
+        return AccountDAO.getInstance().retrieveById(accountId);
+    }
+    
     public static void updateAccount (Account accountObject, int agency, int account, double limit, double creditLimit, int birthdayAccount) {
         accountObject.setAgency(agency);
         accountObject.setAccount(account);
@@ -76,27 +82,27 @@ public class AccountController {
         AccountDAO.getInstance().updateBalance(
             customerAccount,
             amount,
-            "Depósito",
+            MovementDAO.MOVEMENT_DEPOSIT,
             null,
             null,
             null
         );
     }
 
-    public static void withdrawMoney(Account customerAccount, double amount) {
+    public static void withdrawMoney(Account customerAccount, double amount) throws Exception {
         boolean accountOperationIsValid = AccountController.accountOperationIsValid(customerAccount, amount);
         
         if (accountOperationIsValid) {
             AccountDAO.getInstance().updateBalance(
                 customerAccount,
                 amount,
-                "Saque",
+                MovementDAO.MOVEMENT_WITHDRAW,
                 null,
                 null,
                 null
             );
         } else {
-            System.err.println("Saldo insuficiente!");
+            throw new Exception("Erro: Saldo insuficiente!");
         }
     }
 
@@ -149,14 +155,26 @@ public class AccountController {
         boolean isCommonAccount = (customerAccount.getAccountType() == AccountDAO.ACCOUNT_COMMON);
         boolean isSpecialAccount = (customerAccount.getAccountType() == AccountDAO.ACCOUNT_SPECIAL);
         boolean isSavingsAccount = (customerAccount.getAccountType() == AccountDAO.ACCOUNT_SAVINGS);
+        
+        System.out.println("isCommonAccount: " + isCommonAccount);
+        System.out.println("isSpecialAccount: " + isSpecialAccount);
+        System.out.println("isSavingsAccount: " + isSavingsAccount);
 
         boolean operationGreaterThanBalance = (amount > customerAccount.getBalance());
         boolean operationGreaterThanBalanceAndLimit = (amount > customerAccount.getBalance() + customerAccount.getCreditLimit());
         boolean operationLimitTransfer = (amount > customerAccount.getLimitTransaction());
+        
+        System.out.println("operationGreaterThanBalance: " + operationGreaterThanBalance);
+        System.out.println("operationGreaterThanBalanceAndLimit: " + operationGreaterThanBalanceAndLimit);
+        System.out.println("operationLimitTransfer: " + operationLimitTransfer);
 
         boolean commonAccountOperationIsValid = (isCommonAccount && !operationGreaterThanBalance && !operationLimitTransfer);
         boolean specialAccountOperationIsValid = (isSpecialAccount && !operationGreaterThanBalanceAndLimit && !operationLimitTransfer);
         boolean savingsAccountOperationIsValid = (isSavingsAccount && !operationGreaterThanBalance && !operationLimitTransfer);
+        
+        System.out.println("commonAccountOperationIsValid: " + commonAccountOperationIsValid);
+        System.out.println("specialAccountOperationIsValid: " + specialAccountOperationIsValid);
+        System.out.println("savingsAccountOperationIsValid: " + savingsAccountOperationIsValid);
 
         return commonAccountOperationIsValid || specialAccountOperationIsValid || savingsAccountOperationIsValid;
     }

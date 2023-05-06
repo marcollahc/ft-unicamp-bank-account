@@ -118,11 +118,11 @@ public class CustomerDAO extends DAO{
     }
     
     // Inactivate   
-    public void inactivateByCPF(String customerCPF) {
+    public void inactivateById(int id) {
         PreparedStatement stmt;
         try {
-            stmt = DAO.getConnection().prepareStatement("UPDATE customer SET active = 0 WHERE cpf = ?");
-            stmt.setString(1, customerCPF);
+            stmt = DAO.getConnection().prepareStatement("UPDATE customer SET active = 0 WHERE id = ?");
+            stmt.setInt(1, id);
             executeUpdate(stmt);
         } catch (SQLException e) {
             System.err.println("Exception: " + e.getMessage());

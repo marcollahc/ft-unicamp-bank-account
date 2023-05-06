@@ -18,6 +18,9 @@ import java.util.logging.Logger;
  */
 public class MovementDAO extends DAO{
     private static MovementDAO instance;
+
+    public final static String MOVEMENT_WITHDRAW = "Saque";
+    public final static String MOVEMENT_DEPOSIT = "Depósito";
     
     public final static int MOVEMENT_CANCELED = 0;
     public final static int MOVEMENT_ACTIVE = 1;

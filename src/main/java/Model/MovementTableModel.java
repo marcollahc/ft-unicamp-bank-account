@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class MovementTableModel extends GenericTableModel {
     public MovementTableModel(List v_data) {
-        super(v_data, new String[]{"ID", "Origem", "Banco destino", "Agência destino", "Conta destino", "Valor"});
+        super(v_data, new String[]{"ID", "Origem", "Banco destino", "Agência destino", "Conta destino", "Tipo", "Valor"});
     }
     
     @Override
@@ -30,6 +30,8 @@ public class MovementTableModel extends GenericTableModel {
             case 4:
                 return Integer.class;
             case 5:
+                return String.class;
+            case 6:
                 return String.class;
             default:
                 throw new IndexOutOfBoundsException("column_index out of bounds");
@@ -51,8 +53,10 @@ public class MovementTableModel extends GenericTableModel {
                 return movement.getAgency();
             case 4:
                 return movement.getAccount();
-            case 5:     
-                return (movement.getMovementType().equals("Depósito")) ? "+" + movement.getAmount() : "-" + movement.getAmount();
+            case 5:
+                return movement.getMovementType();
+            case 6:
+                return movement.getAmount();
             default:
                 throw new IndexOutOfBoundsException("column_index out of bounds");
         }

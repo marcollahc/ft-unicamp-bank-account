@@ -16,6 +16,8 @@ import Model.CustomerTableModel;
 import Model.GenericTableModel;
 import Model.MovementTableModel;
 import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
@@ -984,9 +986,15 @@ public class vMain extends javax.swing.JFrame {
         // TODO add your handling code here:
         double amount = Double.valueOf(jTextPane23.getText());
         
-        Account customerAccount = Controller.AccountController.getTempAccount();
+        int tempAccountId = Controller.AccountController.getTempAccount().getId();
         
-        Controller.AccountController.withdrawMoney(customerAccount, amount);
+        Account customerAccount = Controller.AccountController.retrieveAccountById(tempAccountId);
+        
+        try {
+            Controller.AccountController.withdrawMoney(customerAccount, amount);
+        } catch (Exception ex) {
+            Logger.getLogger(vMain.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         this.loadMovements();
         
@@ -996,7 +1004,7 @@ public class vMain extends javax.swing.JFrame {
     private void buttonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExcluirActionPerformed
         // TODO add your handling code here:
         String customerCPF = jTextPane2.getText();
-        Controller.CustomerController.inactivateCustomerByCPF(customerCPF);
+        Controller.CustomerController.inactivateCustomerById(CustomerController.getTempCustomer().getId());
         
         this.loadCustomers();
     }//GEN-LAST:event_buttonExcluirActionPerformed
