@@ -114,6 +114,11 @@ public class AccountController {
         Integer receiverAccountNumber
     ) {
         try {
+            /* System.out.println("amount: " + amount);
+            System.out.println("receiverBank: " + receiverBank);
+            System.out.println("receiverAgency: " + receiverAgency);
+            System.out.println("receiverAccountNumber: " + receiverAccountNumber); */
+        
             transferValidations(
                 senderAccount,
                 amount,
@@ -121,9 +126,19 @@ public class AccountController {
                 receiverAgency,
                 receiverAccountNumber
             );
+            
+            AccountDAO.getInstance().updateBalance(
+                senderAccount,
+                amount,
+                MovementDAO.MOVEMENT_WITHDRAW,
+                receiverBank,
+                receiverAgency,
+                receiverAccountNumber
+            );
 
             if (receiverBank == 286) {
                 Account receiverAccount = AccountDAO.getInstance().retrieveByAccountNumber(receiverAccountNumber);
+                
                 if (receiverAccount == null) {
                     throw new Exception("Erro: destinatário não encontrado");
                 }	
@@ -131,21 +146,12 @@ public class AccountController {
                 AccountDAO.getInstance().updateBalance(
                     receiverAccount,
                     amount,
-                    "Transferência recebida de: " + senderAccount.getAccount(),
+                    MovementDAO.MOVEMENT_DEPOSIT,
                     senderAccount.getBank(),
                     senderAccount.getAgency(),
                     senderAccount.getAccount()
                 );
             }
-
-            AccountDAO.getInstance().updateBalance(
-                senderAccount,
-                -amount,
-                "Transferência realizada para: " + receiverAccountNumber,
-                receiverBank,
-                receiverAgency,
-                receiverAccountNumber
-            );
         } catch (Exception exception) {
             System.err.println("Exception: " + exception.getMessage());
         }
@@ -176,7 +182,7 @@ public class AccountController {
         System.out.println("specialAccountOperationIsValid: " + specialAccountOperationIsValid);
         System.out.println("savingsAccountOperationIsValid: " + savingsAccountOperationIsValid);
 
-        return commonAccountOperationIsValid || specialAccountOperationIsValid || savingsAccountOperationIsValid;
+        return (commonAccountOperationIsValid || specialAccountOperationIsValid || savingsAccountOperationIsValid);
     }
 
     private static boolean transferValidations(
@@ -192,8 +198,8 @@ public class AccountController {
             throw new Exception("Erro: informe o banco, agência e conta do destinatário");
         }
 
-        if (accountOperationIsValid) {
-            throw new Exception("Erro: Saldo insuficiente!");
+        if (!accountOperationIsValid) {
+            throw new Exception("Erro 1: Saldo insuficiente!");
         }
 
         return true;

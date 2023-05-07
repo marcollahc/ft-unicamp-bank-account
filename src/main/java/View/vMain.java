@@ -1034,16 +1034,22 @@ public class vMain extends javax.swing.JFrame {
     private void buttonExcluir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExcluir1ActionPerformed
         // TODO add your handling code here:
         AccountController.inactiveAccount(AccountController.getTempAccount());
+        
+        this.loadAccounts();
     }//GEN-LAST:event_buttonExcluir1ActionPerformed
 
     private void buttonExcluir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExcluir2ActionPerformed
         // TODO add your handling code here:
         AccountController.inactiveAccount(AccountController.getTempAccount());
+        
+        this.loadAccounts();
     }//GEN-LAST:event_buttonExcluir2ActionPerformed
 
     private void buttonExcluir3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExcluir3ActionPerformed
         // TODO add your handling code here:
         AccountController.inactiveAccount(AccountController.getTempAccount());
+        
+        this.loadAccounts();
     }//GEN-LAST:event_buttonExcluir3ActionPerformed
 
     /**
