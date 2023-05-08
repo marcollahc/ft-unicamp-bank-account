@@ -945,7 +945,9 @@ public class vMain extends javax.swing.JFrame {
         // TODO add your handling code here:
         double amount = Double.valueOf(jTextPane10.getText());
         
-        Account customerAccount = Controller.AccountController.getTempAccount();
+        int tempAccountId = Controller.AccountController.getTempAccount().getId();
+        
+        Account customerAccount = Controller.AccountController.retrieveAccountById(tempAccountId);
         
         Controller.AccountController.depositMoney(customerAccount, amount);
         
@@ -967,7 +969,9 @@ public class vMain extends javax.swing.JFrame {
         int agency = Integer.valueOf(jTextPane20.getText());
         int account = Integer.valueOf(jTextPane24.getText());
         
-        Account customerAccount = Controller.AccountController.getTempAccount();
+        int tempAccountId = Controller.AccountController.getTempAccount().getId();
+        
+        Account customerAccount = Controller.AccountController.retrieveAccountById(tempAccountId);
         
         Controller.AccountController.moneyTransfer(customerAccount, amount, bankName, agency, account);
         

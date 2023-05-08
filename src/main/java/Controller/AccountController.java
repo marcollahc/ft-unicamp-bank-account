@@ -166,17 +166,27 @@ public class AccountController {
         System.out.println("isSpecialAccount: " + isSpecialAccount);
         System.out.println("isSavingsAccount: " + isSavingsAccount);
 
-        boolean operationGreaterThanBalance = (amount > customerAccount.getBalance());
-        boolean operationGreaterThanBalanceAndLimit = (amount > customerAccount.getBalance() + customerAccount.getCreditLimit());
-        boolean operationLimitTransfer = (amount > customerAccount.getLimitTransaction());
+        boolean operationGreaterThanBalance = (amount <= customerAccount.getBalance());
+        
+        boolean operationGreaterThanBalanceAndLimit = true;
+        
+        if (amount > customerAccount.getBalance()) {
+            double negativeBalance = customerAccount.getBalance() - amount;
+            
+            if (negativeBalance < (customerAccount.getCreditLimit() * -1)) {
+                operationGreaterThanBalanceAndLimit = false;
+            }
+        }
+        
+        boolean operationLimitTransfer = (amount <= customerAccount.getLimitTransaction());
         
         System.out.println("operationGreaterThanBalance: " + operationGreaterThanBalance);
         System.out.println("operationGreaterThanBalanceAndLimit: " + operationGreaterThanBalanceAndLimit);
         System.out.println("operationLimitTransfer: " + operationLimitTransfer);
 
-        boolean commonAccountOperationIsValid = (isCommonAccount && !operationGreaterThanBalance && !operationLimitTransfer);
-        boolean specialAccountOperationIsValid = (isSpecialAccount && !operationGreaterThanBalanceAndLimit && !operationLimitTransfer);
-        boolean savingsAccountOperationIsValid = (isSavingsAccount && !operationGreaterThanBalance && !operationLimitTransfer);
+        boolean commonAccountOperationIsValid = (isCommonAccount && operationGreaterThanBalance && operationLimitTransfer);
+        boolean specialAccountOperationIsValid = (isSpecialAccount && operationGreaterThanBalanceAndLimit && operationLimitTransfer);
+        boolean savingsAccountOperationIsValid = (isSavingsAccount && operationGreaterThanBalance && operationLimitTransfer);
         
         System.out.println("commonAccountOperationIsValid: " + commonAccountOperationIsValid);
         System.out.println("specialAccountOperationIsValid: " + specialAccountOperationIsValid);
