@@ -6,7 +6,6 @@ package View;
 
 import Controller.AccountController;
 import Controller.CustomerController;
-import Controller.MovementController;
 import Model.Account;
 import static Model.AccountDAO.ACCOUNT_COMMON;
 import static Model.AccountDAO.ACCOUNT_SAVINGS;
@@ -789,17 +788,15 @@ public class vMain extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane15)
-                    .addComponent(jScrollPane16, javax.swing.GroupLayout.DEFAULT_SIZE, 808, Short.MAX_VALUE)
-                    .addComponent(jScrollPane17, javax.swing.GroupLayout.DEFAULT_SIZE, 808, Short.MAX_VALUE)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel19)
-                            .addComponent(jLabel20)
-                            .addComponent(jLabel21))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane17, javax.swing.GroupLayout.DEFAULT_SIZE, 798, Short.MAX_VALUE)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jScrollPane16, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 798, Short.MAX_VALUE)
+                        .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel21, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane15, javax.swing.GroupLayout.Alignment.LEADING)))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -843,6 +840,8 @@ public class vMain extends javax.swing.JFrame {
                             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap())))
         );
+
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCadastrarMouseClicked
@@ -874,6 +873,10 @@ public class vMain extends javax.swing.JFrame {
 
     private void buttonCadastrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrar1ActionPerformed
         // TODO add your handling code here:
+        if (CustomerController.getTempCustomer() == null) {
+            this.genericMessage("Escolha um cliente antes de cadastrar a conta.");
+        }
+        
         int agency = Integer.valueOf(jTextPane3.getText());
         int account = Integer.valueOf(jTextPane4.getText());
         double limit = Double.valueOf(jTextPane7.getText());
@@ -893,6 +896,10 @@ public class vMain extends javax.swing.JFrame {
 
     private void buttonCadastrar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrar2ActionPerformed
         // TODO add your handling code here:
+        if (CustomerController.getTempCustomer() == null) {
+            this.genericMessage("Escolha um cliente antes de cadastrar a conta.");
+        }
+        
         int agency = Integer.valueOf(jTextPane5.getText());
         int account = Integer.valueOf(jTextPane6.getText());
         double limit = Double.valueOf(jTextPane8.getText());
@@ -918,6 +925,10 @@ public class vMain extends javax.swing.JFrame {
 
     private void buttonCadastrar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrar3ActionPerformed
         // TODO add your handling code here:
+        if (CustomerController.getTempCustomer() == null) {
+            this.genericMessage("Escolha um cliente antes de cadastrar a conta.");
+        }
+        
         int agency = Integer.valueOf(jTextPane13.getText());
         int account = Integer.valueOf(jTextPane12.getText());
         double limit = Double.valueOf(jTextPane11.getText());
@@ -943,6 +954,10 @@ public class vMain extends javax.swing.JFrame {
 
     private void buttonCadastrar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrar4ActionPerformed
         // TODO add your handling code here:
+        if (CustomerController.getTempCustomer() == null) {
+            this.genericMessage("Escolha um cliente e conta antes de cadastrar a conta.");
+        }
+        
         double amount = Double.valueOf(jTextPane10.getText());
         
         int tempAccountId = Controller.AccountController.getTempAccount().getId();
@@ -962,6 +977,10 @@ public class vMain extends javax.swing.JFrame {
 
     private void buttonCadastrar6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrar6ActionPerformed
         // TODO add your handling code here:
+        if (CustomerController.getTempCustomer() == null) {
+            this.genericMessage("Escolha um cliente e conta antes de cadastrar a conta.");
+        }
+        
         int amount = Integer.valueOf(jTextPane22.getText());
         String bank = (String) jComboBox3.getSelectedItem();
         String[] codeNameBank = bank.split(" - ");
@@ -988,6 +1007,10 @@ public class vMain extends javax.swing.JFrame {
 
     private void buttonCadastrar7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrar7ActionPerformed
         // TODO add your handling code here:
+        if (CustomerController.getTempCustomer() == null) {
+            this.genericMessage("Escolha um cliente e conta antes de cadastrar a conta.");
+        }
+        
         double amount = Double.valueOf(jTextPane23.getText());
         
         int tempAccountId = Controller.AccountController.getTempAccount().getId();
@@ -1103,6 +1126,15 @@ public class vMain extends javax.swing.JFrame {
     
     public void loadMovements() {
         jTable9.setModel(new MovementTableModel(Controller.MovementController.listMovementsAccount(AccountController.getTempAccount().getId())));
+    }
+    
+    public void genericMessage(String text) {
+        if (CustomerController.getTempCustomer() == null) {
+            AlertMessages errorAlert = new AlertMessages();
+            errorAlert.setMessageAlert(text);
+            errorAlert.updateMessage();
+            errorAlert.setVisible(true);
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
