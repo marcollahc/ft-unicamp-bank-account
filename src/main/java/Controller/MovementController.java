@@ -8,9 +8,7 @@ import java.util.List;
  *
  * @author marcos-medeiros
  */
-public class MovementController {
-    public static Movement tempMovement;
-    
+public class MovementController {    
     public static List<Movement> listMovementsAccount(int accountId) {
         return MovementDAO.getInstance().retrieveByAccountId(accountId);
     }

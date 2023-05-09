@@ -13,7 +13,7 @@ import java.util.List;
  */
 
 public class AccountController {
-    public static Account tempAccount = null;
+    private static Account tempAccount = null;
     
     public static Account getTempAccount() {
         return AccountController.tempAccount;
