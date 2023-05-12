@@ -2,9 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Model;
+package View;
 
 import Model.Customer;
+import Model.Customer;
+import Model.CustomerDAO;
 import java.util.Calendar;
 import java.util.List;
 
@@ -51,8 +53,30 @@ public class CustomerTableModel extends GenericTableModel {
         }
     }
     
+    public void setValueAt(Object a_value, int row_index, int column_index) {
+        Customer customer = (Customer) v_data.get(row_index);
+        
+        switch (column_index) {
+            case 0:
+                break;
+            case 1:
+                customer.setName((String) a_value);
+                break;
+            case 2:
+                customer.setCpf((String) a_value);
+                break;
+            case 3:
+                customer.setBirthdate((Calendar) a_value);
+                break;
+            default:
+                throw new IndexOutOfBoundsException("column_index out of bounds");
+        }
+        
+        CustomerDAO.getInstance().update(customer);
+    }
+    
     @Override
     public boolean isCellEditable(int row_index, int column_index) {
-        return false;
+        return true;
     }
 }

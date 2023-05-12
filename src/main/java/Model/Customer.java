@@ -49,7 +49,7 @@ public class Customer {
         return birthdate;
     }
 
-    public void setDataNasc(Calendar birthdate) {
+    public void setBirthdate(Calendar birthdate) {
         this.birthdate = birthdate;
     }
     

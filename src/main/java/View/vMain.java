@@ -10,10 +10,6 @@ import Model.Account;
 import static Model.AccountDAO.ACCOUNT_COMMON;
 import static Model.AccountDAO.ACCOUNT_SAVINGS;
 import static Model.AccountDAO.ACCOUNT_SPECIAL;
-import Model.AccountTableModel;
-import Model.CustomerTableModel;
-import Model.GenericTableModel;
-import Model.MovementTableModel;
 import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -854,17 +850,26 @@ public class vMain extends javax.swing.JFrame {
 
     private void buttonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrarActionPerformed
         // TODO add your handling code here:
-        String fullName = jTextPane1.getText();
-        String cpf = jTextPane2.getText();
-        Calendar birthDate = jDateChooser1.getCalendar();
         
-        Controller.CustomerController.newCustomer(fullName, cpf, birthDate, true);
+        try {
+            String fullName = jTextPane1.getText();
+            String cpf = jTextPane2.getText();
+            Calendar birthDate = jDateChooser1.getCalendar();
+            
+            if (!Utils.Validation.cpf(cpf)) {
+                throw new Exception("O CPF está incorreto.");
+            }
+            
+            Controller.CustomerController.newCustomer(fullName, cpf, birthDate, true);
         
-        this.loadCustomers();
-        
-        jTextPane1.setText("");
-        jTextPane2.setText("");
-        jDateChooser1.getCalendar();
+            this.loadCustomers();
+
+            jTextPane1.setText("");
+            jTextPane2.setText("");
+            jDateChooser1.getCalendar();
+        } catch (Exception e) {
+            this.genericMessage(e.getMessage());
+        }
     }//GEN-LAST:event_buttonCadastrarActionPerformed
 
     private void buttonCadastrar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonCadastrar1MouseClicked
